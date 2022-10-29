@@ -79,7 +79,7 @@ def SQL(cur, sql):
     for sql_i in sql_code_list:
         if sql_i != '':
             cur.execute(sql_i.strip())
-            
+
     return cur.fetchall()
     
 
@@ -150,6 +150,15 @@ def one_str_from_strList(strList, add_char=","):
     return one_str
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: SHOW TABLES;
+# T*
+def sql_SHOW_TABLES(db_name):
+    sql = "use " + str(db_name) + "; SHOW TABLES;"
+    return sql 
+
+
+
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: CREATE TABLE table_name(table_detail_list)
@@ -178,7 +187,7 @@ def sql_DROP_TABLE_tableName(db_name, table_name):
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: SHOW COLUMNS FROM tableName
-# T
+# T*
 def sql_SHOW_COLUMNS_FROM_tableName(db_name, table_name):
     sql = "SHOW COLUMNS FROM " + str(table_name) + " FROM " +  str(db_name) + ";"
     # sql = "use " + str(db_name) + "; " + "SHOW COLUMNS FROM " + str(table_name) + ";"
