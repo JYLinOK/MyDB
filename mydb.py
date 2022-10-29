@@ -129,7 +129,7 @@ def get_version(cur):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP_TABLE_IF_EXISTS_MENU
 # T*
-def sql_DROP_TABLE_IF_EXISTS_tableName(table_name):
+def sql_DROP_TABLE_IF_EXISTS_table(table_name):
     return "DROP TABLE IF EXISTS " + str(table_name) + ";"
 
 
@@ -159,11 +159,10 @@ def sql_SHOW_TABLES(db_name):
 
 
 
-
 # _________________________________________________________________________________________________________________
 # Get SQL code: CREATE TABLE table_name(table_detail_list)
 # T*
-def sql_CREATE_TABLE_use_dbName_create_tableName(db_name, table_name, table_detail):
+def sql_CREATE_TABLE_use_db_create_table(db_name, table_name, table_detail):
     sql = ''
     str_table_detail = ''
     if isinstance(table_detail, str):
@@ -179,7 +178,7 @@ def sql_CREATE_TABLE_use_dbName_create_tableName(db_name, table_name, table_deta
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP TABLE tableName
 # T*
-def sql_DROP_TABLE_tableName(db_name, table_name):
+def sql_DROP_TABLE(db_name, table_name):
     sql = "use " + str(db_name) + "; " + "DROP TABLE " + str(table_name) + ";"
     return sql 
 
@@ -188,7 +187,7 @@ def sql_DROP_TABLE_tableName(db_name, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SHOW COLUMNS FROM tableName
 # T*
-def sql_SHOW_COLUMNS_FROM_tableName(db_name, table_name):
+def sql_SHOW_COLUMNS_FROM_table(db_name, table_name):
     sql = "SHOW COLUMNS FROM " + str(table_name) + " FROM " +  str(db_name) + ";"
     # sql = "use " + str(db_name) + "; " + "SHOW COLUMNS FROM " + str(table_name) + ";"
     print(f'{sql = }')
