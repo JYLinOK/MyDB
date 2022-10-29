@@ -21,5 +21,5 @@ b = [1, 2, 3]
 print(f'{tuple(b) = }')
 print(f'{type(tuple(b))= }')
 
-
+print(str(None) = )
 

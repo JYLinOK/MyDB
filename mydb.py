@@ -229,4 +229,10 @@ def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, values_list):
     return sql 
 
 
-
+# _________________________________________________________________________________________________________________
+# Get SQL code: CREATE USER 'username' @ 'localhost' IDENTIFIED BY 'password';
+# T*
+def sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip='localhost', password=''):
+    sql = "CREATE USER '" + str(username) + "'@'" + str(ip) + "' IDENTIFIED BY '" + str(password) + "';"
+    print(sql)
+    return sql 
