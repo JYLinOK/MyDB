@@ -20,7 +20,7 @@ def connect_db(user, password, host, port, database):
 # _________________________________________________________________________________________________________________
 # Execute a SQL code
 # T*
-def exe_SQL(cur, sql):
+def SQL(cur, sql):
     cur.execute(sql)
 
 
@@ -44,3 +44,18 @@ def print_result_cur(cur):
 def close_db_cur_coon(cur, coon):
     cur.close()
     coon.close()
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: get the version of MariaDB
+# T*
+def sql_get_version():
+    return "SELECT VERSION();"
+
+
+# _________________________________________________________________________________________________________________
+# Get the version of MariaDB
+# T*
+def get_version(cur):
+    SQL(cur, sql_get_version())
+    return cur.fetchall()
