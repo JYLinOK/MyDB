@@ -121,17 +121,13 @@ def one_str_from_strList(strList, add_char=","):
 # _________________________________________________________________________________________________________________
 # Get SQL code: CREATE TABLE table_name(table_detail_list)
 # T*
-def sql_CREATE_TABLE_tableName(db_name, table_name, table_detail):
+def sql_CREATE_TABLE_use_dbName_create_tableName(db_name, table_name, table_detail):
     sql = ''
     str_table_detail = ''
     if isinstance(table_detail, str):
         str_table_detail = table_detail
     elif isinstance(table_detail, list):
         str_table_detail = one_str_from_strList(table_detail)
-    
-    sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table_name) + "(" + one_str_from_strList(table_detail) + ")"
+    sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table_name) + "(" + str_table_detail + ");"
 
-
-
-    'use db1; CREATE TABLE db1_tb1(name varchar(20) not null, id int,gender char(1));'
-    return "DROP TABLE IF EXISTS " + str(table_name) + ";"
+    return sql
