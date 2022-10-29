@@ -1,6 +1,11 @@
 import mariadb
 
-
+'''
+time: 2022/10/29
+author: Jinwei Lin
+code name: mydb
+version:0.0.1
+'''
 
 
 user_m = "root"
@@ -9,42 +14,39 @@ host_m = "192.168.1.2"
 port_m = 3306
 database_m = ""
 
-
-conn = mariadb.connect(user=user_m, password=password_m, host=host_m, port=port_m, database=database_m)
-
-cur = conn.cursor()
-
-
-sql = "use db1;"
-cur.execute(sql)
-
-# sql = '''CREATE TABLE tbl(
-#    product_id INT NOT NULL AUTO_INCREMENT,
-#    product_name VARCHAR(100) NOT NULL,
-#    product_manufacturer VARCHAR(40) NOT NULL,
-#    submission_date DATE,
-#    PRIMARY KEY ( product_id )
-# );
-# '''
-
-# cur.execute(sql)
+# _________________________________________________________________________________________________________________
+# Connect a database
+# T*
+def connect_db(user, password, host, port, database):
+    conn = mariadb.connect(user=user_m, password=password_m, host=host_m, port=port_m, database=database_m)
+    cur = conn.cursor()
+    return conn, cur
 
 
-sql = "SHOW DATABASES;"
-cur.execute(sql)
+# _________________________________________________________________________________________________________________
+# Execute a SQL code
+# T*
+def exe_SQL(cur, sql):
+    cur.execute(sql)
 
 
+# _________________________________________________________________________________________________________________
+# Get result of a cur
+# T*
+def result_cur(cur, sql):
+    return cur.fetchall()
 
 
+# _________________________________________________________________________________________________________________
+# Get result of a cur
+# T*
+def print_result_cur(cur, sql):
+    print(cur.fetchall()) 
 
-result = cur.fetchall()
 
-
-print(f'{result = }')
-
-
-# for one in result:
-#     print(one)
-
-cur.close()
-conn.close()
+# _________________________________________________________________________________________________________________
+# Close a db conn and cur
+# T*
+def close_db_cur_coon(cur, coon):
+    cur.close()
+    coon.close()
