@@ -43,7 +43,7 @@ def split_str_by_spList_ret_enterStr(str, split_list):
 # Execute a SQL code
 # Add: execute multiple line code function
 # T*
-def SQL(cur, sql):
+def SQL_noResult(cur, sql):
     sql_code_list = []
    
     if isinstance(sql, str):
@@ -58,6 +58,30 @@ def SQL(cur, sql):
         if sql_i != '':
             cur.execute(sql_i.strip())
 
+
+
+
+# _________________________________________________________________________________________________________________
+# Execute a SQL code
+# Add: execute multiple line code function
+# T*
+def SQL(cur, sql):
+    sql_code_list = []
+   
+    if isinstance(sql, str):
+        sql_code_list = sql.split(";")
+        # print(f'1: {sql_code_list = }')
+
+    elif isinstance(sql, list):
+        sql_code_list = sql
+        # print(f'2: {sql_code_list = }')
+
+    for sql_i in sql_code_list:
+        if sql_i != '':
+            cur.execute(sql_i.strip())
+            
+    return cur.fetchall()
+    
 
 
 # _________________________________________________________________________________________________________________
@@ -156,7 +180,9 @@ def sql_DROP_TABLE_tableName(db_name, table_name):
 # Get SQL code: SHOW COLUMNS FROM tableName
 # T
 def sql_SHOW_COLUMNS_FROM_tableName(db_name, table_name):
-    sql = "use " + str(db_name) + "; " + "SHOW COLUMNS FROM " + str(table_name) + ";"
+    sql = "SHOW COLUMNS FROM " + str(table_name) + " FROM " +  str(db_name) + ";"
+    # sql = "use " + str(db_name) + "; " + "SHOW COLUMNS FROM " + str(table_name) + ";"
+    print(f'{sql = }')
     return sql 
 
 
