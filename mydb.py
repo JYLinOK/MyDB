@@ -8,12 +8,6 @@ version:0.0.1
 '''
 
 
-user_m = "root"
-password_m = "123123"
-host_m = "192.168.1.2"
-port_m = 3306
-database_m = ""
-
 # _________________________________________________________________________________________________________________
 # Connect a database
 # T*
@@ -33,14 +27,14 @@ def exe_SQL(cur, sql):
 # _________________________________________________________________________________________________________________
 # Get result of a cur
 # T*
-def result_cur(cur, sql):
+def result_cur(cur):
     return cur.fetchall()
 
 
 # _________________________________________________________________________________________________________________
 # Get result of a cur
 # T*
-def print_result_cur(cur, sql):
+def print_result_cur(cur):
     print(cur.fetchall()) 
 
 
