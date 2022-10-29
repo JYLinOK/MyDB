@@ -12,7 +12,16 @@ version:0.0.1
 # Connect a database
 # T*
 def connect_db(user, password, host, port, database):
-    conn = mariadb.connect(user, password, host, port, database, database)
+    conn = mariadb.connect(user, password, host, port, database)
+    cur = conn.cursor()
+    return conn, cur
+
+
+# _________________________________________________________________________________________________________________
+# Connect a database with dict
+# T*
+def connect_db_d(d):
+    conn = mariadb.connect(user=d["user"], password=d["password"], host=d["host"], port=d["port"], database=d["database"])
     cur = conn.cursor()
     return conn, cur
 
