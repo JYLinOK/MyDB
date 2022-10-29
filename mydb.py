@@ -60,27 +60,26 @@ def SQL_noResult(cur, sql):
 
 
 
-
 # _________________________________________________________________________________________________________________
 # Execute a SQL code
 # Add: execute multiple line code function
 # T*
 def SQL(cur, sql):
     sql_code_list = []
-   
     if isinstance(sql, str):
         sql_code_list = sql.split(";")
         # print(f'1: {sql_code_list = }')
-
     elif isinstance(sql, list):
         sql_code_list = sql
         # print(f'2: {sql_code_list = }')
 
     for sql_i in sql_code_list:
         if sql_i != '':
-            cur.execute(sql_i.strip())
-
-    return cur.fetchall()
+            try:
+                cur.execute(sql_i.strip() + ";")
+                return cur.fetchall()
+            except:
+                pass
     
 
 
@@ -189,8 +188,11 @@ def sql_DROP_TABLE(db_name, table_name):
 # T*
 def sql_SHOW_COLUMNS_FROM_table(db_name, table_name):
     sql = "SHOW COLUMNS FROM " + str(table_name) + " FROM " +  str(db_name) + ";"
-    # sql = "use " + str(db_name) + "; " + "SHOW COLUMNS FROM " + str(table_name) + ";"
     print(f'{sql = }')
     return sql 
+
+
+
+
 
 

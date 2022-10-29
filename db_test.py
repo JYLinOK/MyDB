@@ -26,21 +26,18 @@ conn, cur = mydb.connect_db_d(d)
 # print(f'{mydb.get_version(cur) = }')
 
 a = [
-    "name varchar(20) not null",
-    "id int",
-    "id2 int",
-    "id3 int",
-    "gender char(1)"
+    "id int not null",
+    "name char(10)"
 ]
 
 
-# print(f'{mydb.SQL(cur, mydb.sql_SHOW_TABLES("db1")) = }')
+print(f'{mydb.SQL(cur, mydb.sql_SHOW_TABLES("db1")) = }')
 
 # print(f'{mydb.SQL(cur, mydb.sql_CREATE_TABLE_use_db_create_table("db1", "t1", a)) = }')
 
 # print(f'{mydb.SQL(cur, mydb.sql_DROP_TABLE("db1", "t1")) = }')
 
-# print(f'{mydb.SQL(cur, mydb.sql_SHOW_COLUMNS_FROM_table("db1", "tbl")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_SHOW_COLUMNS_FROM_table("db1", "t1")) = }')
 
 
 cur.close()
