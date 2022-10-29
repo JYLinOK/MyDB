@@ -34,13 +34,13 @@ a = [
 ]
 
 
-print(f'{mydb.SQL(cur, mydb.sql_SHOW_TABLES("db1")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_SHOW_TABLES("db1")) = }')
 
-# print(f'{mydb.SQL(cur, mydb.sql_CREATE_TABLE_use_dbName_create_tableName("db1", "t1", a)) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_CREATE_TABLE_use_db_create_table("db1", "t1", a)) = }')
 
-# print(f'{mydb.SQL(cur, mydb.sql_DROP_TABLE_tableName("db1", "t1")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_DROP_TABLE("db1", "t1")) = }')
 
-# print(f'{mydb.SQL(cur, mydb.sql_SHOW_COLUMNS_FROM_tableName("db1", "tbl")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_SHOW_COLUMNS_FROM_table("db1", "tbl")) = }')
 
 
 cur.close()
