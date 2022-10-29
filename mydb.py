@@ -17,11 +17,13 @@ def connect_db(user, password, host, port, database):
     return conn, cur
 
 
+
 # _________________________________________________________________________________________________________________
 # Execute a SQL code
 # T*
 def SQL(cur, sql):
     cur.execute(sql)
+
 
 
 # _________________________________________________________________________________________________________________
@@ -31,11 +33,13 @@ def result_cur(cur):
     return cur.fetchall()
 
 
+
 # _________________________________________________________________________________________________________________
 # Get result of a cur
 # T*
 def print_result_cur(cur):
     print(cur.fetchall()) 
+
 
 
 # _________________________________________________________________________________________________________________
@@ -46,16 +50,26 @@ def close_db_cur_coon(cur, coon):
     coon.close()
 
 
+
 # _________________________________________________________________________________________________________________
 # Get SQL code: get the version of MariaDB
 # T*
-def sql_get_version():
+def sql_SELECT_VERSION():
     return "SELECT VERSION();"
+
 
 
 # _________________________________________________________________________________________________________________
 # Get the version of MariaDB
 # T*
 def get_version(cur):
-    SQL(cur, sql_get_version())
+    SQL(cur, sql_SELECT_VERSION())
     return cur.fetchall()
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: DROP_TABLE_IF_EXISTS_MENU
+# T*
+def sql_DROP_TABLE_IF_EXISTS_MENU(table_name):
+    return "DROP TABLE IF EXISTS " + str(table_name) + ";"
