@@ -12,7 +12,7 @@ version:0.0.1
 # Connect a database
 # T*
 def connect_db(user, password, host, port, database):
-    conn = mariadb.connect(user=user_m, password=password_m, host=host_m, port=port_m, database=database_m)
+    conn = mariadb.connect(user, password, host, port, database, database)
     cur = conn.cursor()
     return conn, cur
 
@@ -71,12 +71,13 @@ def get_version(cur):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP_TABLE_IF_EXISTS_MENU
 # T*
-def sql_DROP_TABLE_IF_EXISTS_MENU(table_name):
+def sql_DROP_TABLE_IF_EXISTS_TableName(table_name):
     return "DROP TABLE IF EXISTS " + str(table_name) + ";"
 
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: CREATE TABLE table_name(table_detail_list)
 # T*
-def sql_DROP_TABLE_IF_EXISTS_TableName(table_name):
+def sql_CREATE_TABLE_TableName(table_name, table_detail_list):
+
     return "DROP TABLE IF EXISTS " + str(table_name) + ";"
