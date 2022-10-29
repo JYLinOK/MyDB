@@ -9,14 +9,13 @@ a = [
    "PRIMARY KEY ( product_id )"
 ]
 
-a = '123456'
-print(f'{a[:-1] = }')
+# a = '123456'
+# print(f'{a[:-1] = }')
 
-s = ['123,', '456', '789,']
-print(f'{str(a) = }')
+# s = ['123,', '456', '789,']
+# print(f'{str(a) = }')
 
 
-print(f'{mydb.sql_CREATE_TABLE_use_dbName_create_tableName("db1", "t1", a) = }')
 
 
 
