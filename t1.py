@@ -16,6 +16,10 @@ a = [
 # print(f'{str(a) = }')
 
 
+b = (1, 2, 3)
+b = [1, 2, 3]
+print(f'{tuple(b) = }')
+print(f'{type(tuple(b))= }')
 
 
 

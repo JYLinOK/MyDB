@@ -211,8 +211,21 @@ def sql_SELECT_ALL_FROM_table(db_name, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
 # T*
-def sql_INSERT_INTO_table(db_name, table_name):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + ";"
+def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, values_list):
+    values_str = ''
+    for i in range(len(values_list)):
+        value_i_str = ''
+        if isinstance(values_list[i], tuple):
+            value_i_str = str(values_list[i])
+        elif isinstance(values_list[i], list):
+            value_i_str = str(tuple(values_list[i]))
+
+        if i < len(values_list)-1:
+            values_str += value_i_str + ','
+        else:
+            values_str += value_i_str
+
+    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " VALUES " + values_str + ";"
     return sql 
 
 
