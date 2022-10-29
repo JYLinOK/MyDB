@@ -182,6 +182,14 @@ def sql_DROP_TABLE(db_name, table_name):
     return sql 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: DESCRIBE tableName;
+# T*
+def sql_DESCRIBE_tableName(db_name, table_name):
+    sql = "use " + str(db_name) + "; " + "DESCRIBE " + str(table_name) + ";"
+    print(sql)
+    return sql 
+
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: SHOW COLUMNS FROM tableName

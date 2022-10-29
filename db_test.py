@@ -39,7 +39,9 @@ a = [
 
 # print(f'{mydb.SQL(cur, mydb.sql_SHOW_COLUMNS_FROM_table("db1", "t1")) = }')
 
-print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_DESCRIBE_tableName("db1", "t1")) = }')
+
+# print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 
 
 
