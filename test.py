@@ -1,5 +1,5 @@
 import mariadb
-
+import mydb
 
 
 
@@ -14,37 +14,15 @@ conn = mariadb.connect(user=user_m, password=password_m, host=host_m, port=port_
 
 cur = conn.cursor()
 
-
-sql = "use db1;"
-cur.execute(sql)
-
-# sql = '''CREATE TABLE tbl(
-#    product_id INT NOT NULL AUTO_INCREMENT,
-#    product_name VARCHAR(100) NOT NULL,
-#    product_manufacturer VARCHAR(40) NOT NULL,
-#    submission_date DATE,
-#    PRIMARY KEY ( product_id )
-# );
-# '''
-
-# cur.execute(sql)
-
-
-sql = "SHOW DATABASES;"
-cur.execute(sql)
+print(f'{mydb.get_version(cur) = }')
 
 
 
 
 
-result = cur.fetchall()
 
 
-print(f'{result = }')
 
-
-# for one in result:
-#     print(one)
 
 cur.close()
 conn.close()

@@ -73,3 +73,10 @@ def get_version(cur):
 # T*
 def sql_DROP_TABLE_IF_EXISTS_MENU(table_name):
     return "DROP TABLE IF EXISTS " + str(table_name) + ";"
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: CREATE TABLE table_name(table_detail_list)
+# T*
+def sql_DROP_TABLE_IF_EXISTS_TableName(table_name):
+    return "DROP TABLE IF EXISTS " + str(table_name) + ";"
