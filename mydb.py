@@ -137,15 +137,26 @@ def sql_CREATE_TABLE_use_dbName_create_tableName(db_name, table_name, table_deta
         str_table_detail = table_detail
     elif isinstance(table_detail, list):
         str_table_detail = one_str_from_strList(table_detail)
-
+        
+    sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table_name) + "(" + str_table_detail + ");"
     return sql 
 
 
 
+# _________________________________________________________________________________________________________________
 # Get SQL code: DROP TABLE tableName
 # T*
 def sql_DROP_TABLE_tableName(db_name, table_name):
     sql = "use " + str(db_name) + "; " + "DROP TABLE " + str(table_name) + ";"
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SHOW COLUMNS FROM tableName
+# T
+def sql_SHOW_COLUMNS_FROM_tableName(db_name, table_name):
+    sql = "use " + str(db_name) + "; " + "SHOW COLUMNS FROM " + str(table_name) + ";"
     return sql 
 
 
