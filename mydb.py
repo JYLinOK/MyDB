@@ -130,4 +130,5 @@ def sql_CREATE_TABLE_use_dbName_create_tableName(db_name, table_name, table_deta
         str_table_detail = one_str_from_strList(table_detail)
     sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table_name) + "(" + str_table_detail + ");"
 
-    return sql
+    return sql 
+
