@@ -188,10 +188,15 @@ def sql_DROP_TABLE(db_name, table_name):
 # T*
 def sql_SHOW_COLUMNS_FROM_table(db_name, table_name):
     sql = "SHOW COLUMNS FROM " + str(table_name) + " FROM " +  str(db_name) + ";"
-    print(f'{sql = }')
     return sql 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM tableName
+# T*
+def sql_SELECT_ALL_FROM_table(db_name, table_name):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + ";"
+    return sql 
 
 
 
