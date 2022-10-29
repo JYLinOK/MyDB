@@ -185,7 +185,7 @@ def sql_DROP_TABLE(db_name, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DESCRIBE tableName;
 # T*
-def sql_DESCRIBE_tableName(db_name, table_name):
+def sql_DESCRIBE_table(db_name, table_name):
     sql = "use " + str(db_name) + "; " + "DESCRIBE " + str(table_name) + ";"
     print(sql)
     return sql 
@@ -206,6 +206,14 @@ def sql_SELECT_ALL_FROM_table(db_name, table_name):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + ";"
     return sql 
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
+# T*
+def sql_INSERT_INTO_table(db_name, table_name):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + ";"
+    return sql 
 
 
 
