@@ -100,8 +100,38 @@ def sql_DROP_TABLE_IF_EXISTS_tableName(table_name):
     return "DROP TABLE IF EXISTS " + str(table_name) + ";"
 
 
+
+# _________________________________________________________________________________________________________________
+# Add items of a list to be a big str
+def one_str_from_strList(strList, add_char=","):
+    one_str = ''
+
+    for i in range(len(strList)):
+        str_i = strList[i]
+        if i < len(strList)-1 and str_i.strip()[-1] != ",": 
+            str_i += ","
+        elif i == len(strList)-1 and str_i.strip()[-1] == ",": 
+            str_i = str_i[:-1]
+        one_str += str_i
+
+    return one_str
+
+
+
 # _________________________________________________________________________________________________________________
 # Get SQL code: CREATE TABLE table_name(table_detail_list)
 # T*
-def sql_CREATE_TABLE_tableName(table_name, table_detail_list):
+def sql_CREATE_TABLE_tableName(db_name, table_name, table_detail):
+    sql = ''
+    str_table_detail = ''
+    if isinstance(table_detail, str):
+        str_table_detail = table_detail
+    elif isinstance(table_detail, list):
+        str_table_detail = one_str_from_strList(table_detail)
+    
+    sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table_name) + "(" + one_str_from_strList(table_detail) + ")"
+
+
+
+    'use db1; CREATE TABLE db1_tb1(name varchar(20) not null, id int,gender char(1));'
     return "DROP TABLE IF EXISTS " + str(table_name) + ";"
