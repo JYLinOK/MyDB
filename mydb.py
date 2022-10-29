@@ -28,20 +28,6 @@ def split_str_by_spList_ret_enterStr(str, split_list):
         new_str += char_i
     return new_str
 
-   
-
-
-# _________________________________________________________________________________________________________________
-# Split a str in list by split list, return a str splited list
-def split_str_by_spList_ret_list(str, split_list):
-    new_str = ''
-    for char_i in str:
-        if char_i != '\n' and char_i in split_list:
-            char_i = '\n'
-        new_str += char_i
-    return new_str.split('\n')
-
-
 
 
 # _________________________________________________________________________________________________________________
@@ -49,11 +35,19 @@ def split_str_by_spList_ret_list(str, split_list):
 # Add: execute multiple line code function
 # T*
 def SQL(cur, sql):
-    not_enter_strList = []
-    if '\n' in sql:
-        for str_i in sql.pli
+    sql_code_list = []
+   
+    if isinstance(sql, str):
+        sql_code_list = sql.split(";")
+        # print(f'1: {sql_code_list = }')
 
-    cur.execute(sql)
+    elif isinstance(sql, list):
+        sql_code_list = sql
+        # print(f'2: {sql_code_list = }')
+
+    for sql_i in sql_code_list:
+        if sql_i != '':
+            cur.execute(sql_i.strip())
 
 
 
