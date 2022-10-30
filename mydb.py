@@ -135,7 +135,7 @@ def sql_DROP_TABLE_IF_EXISTS_table(table_name):
 
 # _________________________________________________________________________________________________________________
 # Add items of a list to be a big str
-def one_str_from_strList(strList, add_char=","):
+def strList_to_1str(strList, add_char=","):
     one_str = ''
 
     for i in range(len(strList)):
@@ -167,7 +167,7 @@ def sql_CREATE_TABLE_use_db_create_table(db_name, table_name, table_detail):
     if isinstance(table_detail, str):
         str_table_detail = table_detail
     elif isinstance(table_detail, list):
-        str_table_detail = one_str_from_strList(table_detail)
+        str_table_detail = strList_to_1str(table_detail)
         
     sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table_name) + "(" + str_table_detail + ");"
     return sql 
@@ -337,4 +337,19 @@ def sql_SELECT_ALL_FROM_table_WHERE_condiction(db_name, table_name, condiction):
     return sql 
 
 
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT column FROM tableName
+# T*
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, table_name):
+    column_list_str = ''
+    for i in range(len(column_list)):
+        if i < len(column_list)-1:
+            column_list_str += column_list[i].strip() + ','
+        else:
+            column_list_str += column_list[i].strip()
+
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column_list_str) + " FROM " + str(table_name) + ";"
+    # print(sql)
+    return sql 
 
