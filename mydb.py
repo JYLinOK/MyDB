@@ -234,5 +234,51 @@ def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, values_list):
 # T*
 def sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip='localhost', password=''):
     sql = "CREATE USER '" + str(username) + "'@'" + str(ip) + "' IDENTIFIED BY '" + str(password) + "';"
+    # print(sql)
+    return sql 
+
+
+# _________________________________________________________________________________________________________________
+# Create remote user
+# T*
+def SQL_create_remote_user(username, ip='%', password=''):
+    sql = sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip, password)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT column FROM tableName
+# T*
+def sql_SELECT_column_FROM_table(db_name, column, table_name):
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column) + " FROM " + str(table_name) + ";"
+    # print(sql)
+    return sql 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM tableName
+# T*
+def sql_SELECT_columnList_FROM_table(db_name, column_list, table_name):
+    column_list_str = ''
+    for i in range(len(column_list)):
+        if i < len(column_list)-1:
+            column_list_str += column_list[i].strip() + ';'
+        else:
+            column_list_str += column_list[i].strip()
+
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column_list_str) + " FROM " + str(table_name) + ";"
     print(sql)
     return sql 
+
+
+
+
+
+
+
+
+
+
+
+
