@@ -226,7 +226,7 @@ def str2DList_to_1d_tupleStr(str2DList):
             tupleStr += tuple_i_str
     return tupleStr
 
-    
+
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
@@ -234,42 +234,31 @@ def str2DList_to_1d_tupleStr(str2DList):
 def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, tuple_list):
     values_str = str2DList_to_1d_tupleStr(tuple_list)
     sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " VALUES " + values_str + ";"
-    print(f'{sql = }')
+    # print(f'{sql = }')
     return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Delete the single quotes in a str
+# T*
+def delete_single_quotes_in_str(str):
+    new_str = ''
+    for char_i in str:
+        if char_i not in ['\'', '"']:
+            new_str += char_i
+    return new_str
 
 
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tablename (field,field2,...) VALUES (value, value2,...);
 # T*
-def sql_INSERT_INTO_tab2le_VALUES_tuples(db_name, table_name, values_list):
-    fields_str = ''
-    for i in range(len(values_list)):
-        value_i_str = ''
-        if isinstance(values_list[i], tuple):
-            value_i_str = str(values_list[i])
-        elif isinstance(values_list[i], list):
-            value_i_str = str(tuple(values_list[i]))
-
-        if i < len(values_list)-1:
-            values_str += value_i_str + ','
-        else:
-            values_str += value_i_str
-
-    values_str = ''
-    for i in range(len(values_list)):
-        value_i_str = ''
-        if isinstance(values_list[i], tuple):
-            value_i_str = str(values_list[i])
-        elif isinstance(values_list[i], list):
-            value_i_str = str(tuple(values_list[i]))
-
-        if i < len(values_list)-1:
-            values_str += value_i_str + ','
-        else:
-            values_str += value_i_str
-
-    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " VALUES " + values_str + ";"
+def sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples(db_name, table_name, filed_list, tuple_list):
+    fileds_str_t = tuple(filed_list)
+    # values_str = str2DList_to_1d_tupleStr(tuple_list)
+    values_str_t = tuple(tuple_list)
+    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " " + delete_single_quotes_in_str(str(fileds_str_t)) + " VALUES " + str(values_str_t) + ";"
     print(f'{sql = }')
     return sql 
 
