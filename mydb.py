@@ -339,7 +339,7 @@ def sql_SELECT_ALL_FROM_table_WHERE_condiction(db_name, table_name, condiction):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ...
+# Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ...
 # T*
 def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, table_name, order_lsit):
     sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + ";"
@@ -349,7 +349,7 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, tabl
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
+# Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
 # T*
 def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list, table_name, order_lsit):
     sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " DESC;"
@@ -359,7 +359,7 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list,
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
+# Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
 # T*
 def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, table_name, order_lsit):
     sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " ASC;"
@@ -367,11 +367,48 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, 
     return sql 
 
 
+# _________________________________________________________________________________________________________________
+# Change key-value list to kv str
+# T*
+def kvList_2_kvStr(kv_list):
+    kvStr = ''
+    for i in range(len(kv_list)):
+        k_v = kv_list[i]
+        k = str(k_v[0])
+        if isinstance(k_v[1], str):
+            v = "'" + k_v[1] + "'"
+        else:
+            v = str(k_v[1])
+        if i < len(kv_list)-1:
+            kvStr += k + '=' + v + ','
+        else:
+            kvStr += k + '=' + v
+    return kvStr
+
+
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., condiction
+# Get SQL code: UPDATE table SET column_kv_list WHERE column_conkv_list
 # T*
-def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column_list, table_name, order_lsit, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
+def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table_name, column_kv_list, column_conkv_list):
+    sql = "use " + str(db_name) + "; " + "UPDATE " + str(table_name) + " SET " + kvList_2_kvStr(column_kv_list) + " WHERE " + kvList_2_kvStr(column_conkv_list) + ";"
     print(sql)
     return sql 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
