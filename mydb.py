@@ -140,9 +140,9 @@ def strList_to_1str(strList, add_char=","):
 
     for i in range(len(strList)):
         str_i = strList[i]
-        if i < len(strList)-1 and str_i.strip()[-1] != ",": 
+        if i < len(strList)-1 and str_i.strip()[-1] != add_char: 
             str_i += ","
-        elif i == len(strList)-1 and str_i.strip()[-1] == ",": 
+        elif i == len(strList)-1 and str_i.strip()[-1] == add_char: 
             str_i = str_i[:-1]
         one_str += str_i
 
