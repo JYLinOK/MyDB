@@ -68,20 +68,42 @@ def SQL(cur, sql):
     sql_code_list = []
     if isinstance(sql, str):
         sql_code_list = sql.split(";")
-        # print(f'1: {sql_code_list = }')
     elif isinstance(sql, list):
         sql_code_list = sql
-        # print(f'2: {sql_code_list = }')
 
     for sql_i in sql_code_list:
         if sql_i != '':
             try:
+                # print(f'{sql_i = }')
                 cur.execute(sql_i.strip() + ";")
                 return cur.fetchall()
             except Exception as e:
-                print(f'SQL:{e = }')
+                # print(f'SQL:{e = }')
                 pass
     
+
+
+# _________________________________________________________________________________________________________________
+# Execute a SQL code with commit
+# Add: execute multiple line code function
+# T*
+def SQLcommit(cur, conn, sql):
+    sql_code_list = []
+    if isinstance(sql, str):
+        sql_code_list = sql.split(";")
+    elif isinstance(sql, list):
+        sql_code_list = sql
+
+    for sql_i in sql_code_list:
+        if sql_i != '':
+            try:
+                # print(f'{sql_i = }')
+                cur.execute(sql_i.strip() + ";")
+                conn.commit()
+                return cur.fetchall()
+            except Exception as e:
+                # print(f'SQL:{e = }')
+                pass
 
 
 # _________________________________________________________________________________________________________________
@@ -391,9 +413,9 @@ def kvList_2_kvStr(kv_list):
         else:
             v = str(k_v[1])
         if i < len(kv_list)-1:
-            kvStr += k + '=' + v + ','
+            kvStr += k + ' = ' + v + ','
         else:
-            kvStr += k + '=' + v
+            kvStr += k + ' = ' + v
     return kvStr
 
 

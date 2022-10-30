@@ -74,13 +74,13 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # print(f"{mydb.SQL(cur, sql) = }")
 
 
-sql = mydb.sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList("db1", "t1", [["id", 123]], [["name", "this 1"]])
-print(f"{mydb.SQL(cur, sql) = }")
+sql = mydb.sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList("db1", "t1", [["id", 1]], [["name", "this 1"]])
+print(f"{mydb.SQLcommit(cur, conn, sql) = }")
 
 
 
 
 
-
+# conn.commit()
 cur.close()
 conn.close()
