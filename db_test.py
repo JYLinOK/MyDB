@@ -47,7 +47,7 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # t = [[1, "this 1"], [2, "ok 123"], [3, "NO.3"], [4, "ok 123"]]
 # print(f'{mydb.SQL(cur, mydb.sql_INSERT_INTO_table_VALUES_tuples("db1", "t1", t)) = }')
 
-# print(f'{mydb.SQL(cur, mydb.sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples("db1", "t1", ["id", "name"], [66, "is 66"])) = }')
+# print(f'{mydb.SQLcommit(cur,conn, mydb.sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples("db1", "t1", ["id", "name"], [66, "is 66"])) = }')
 
 # print(f'{mydb.SQL(cur, mydb.sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password("usr1", "localhost", "666")) = }')
 
