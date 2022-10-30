@@ -61,8 +61,20 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_table_WHERE_condiction("db1", "t1", "name='ok 123'")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList("db1", ["id"], "t1", ["name"])
+# sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList("db1", ["id"], "t1", ["name"])
+# print(f"{mydb.SQL(cur, sql) = }")
+
+# sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC("db1", ["id"], "t1", ["name"])
+# print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction("db1", ["id"], "t1", ["name"], 'ASC')
 print(f"{mydb.SQL(cur, sql) = }")
+
+
+
+
+
+
 
 
 

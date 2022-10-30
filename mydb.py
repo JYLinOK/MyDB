@@ -346,3 +346,32 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, tabl
     print(sql)
     return sql 
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
+# T*
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list, table_name, order_lsit):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " DESC;"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
+# T*
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, table_name, order_lsit):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " ASC;"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., condiction
+# T*
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column_list, table_name, order_lsit, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
+    print(sql)
+    return sql 
