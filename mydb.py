@@ -263,7 +263,7 @@ def sql_SELECT_columnList_FROM_table(db_name, column_list, table_name):
     column_list_str = ''
     for i in range(len(column_list)):
         if i < len(column_list)-1:
-            column_list_str += column_list[i].strip() + ';'
+            column_list_str += column_list[i].strip() + ','
         else:
             column_list_str += column_list[i].strip()
 
