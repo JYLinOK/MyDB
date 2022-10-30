@@ -16,7 +16,7 @@ database_m = ""
 d = {
     "user":"root",
     "password": "123123",
-    "host": "192.168.1.2",
+    "host": "localhost",
     "port": 3306,
     "database": "",
 }
@@ -29,6 +29,9 @@ a = [
     "id int not null",
     "name char(10)"
 ]
+
+
+print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 
 
 # print(f'{mydb.SQL(cur, mydb.sql_SHOW_TABLES("db1")) = }')
@@ -48,7 +51,6 @@ a = [
 
 # print(f'{mydb.SQL(cur, mydb.sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password("usr1", "localhost", "666")) = }')
 
-print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 
 # print(f'{mydb.SQL(cur, mydb.sql_SELECT_column_FROM_table("db1", "name", "t1")) = }')
 
@@ -59,9 +61,10 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_table_WHERE_condiction("db1", "t1", "name='ok 123'")
 # print(f"{mydb.SQL(cur, sql) = }")
 
+sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList("db1", ["id"], "t1", ["name"])
+print(f"{mydb.SQL(cur, sql) = }")
 
 
 
-
-# cur.close()
-# conn.close()
+cur.close()
+conn.close()
