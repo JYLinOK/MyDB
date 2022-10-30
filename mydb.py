@@ -430,6 +430,16 @@ def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table_name,
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: DELETE FROM table WHERE k=v
+# T*
+def sql_DELETE_FROM_table_WHERE_kv(db_name, table_name, column_conkv):
+    sql = "use " + str(db_name) + "; " + "DELETE FROM " + str(table_name) + " WHERE " + kvList_2_kvStr([column_conkv]) + ";"
+    print(sql)
+    return sql 
+
+
+
 
 
 
