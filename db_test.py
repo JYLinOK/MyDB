@@ -41,8 +41,8 @@ a = [
 
 # print(f'{mydb.SQL(cur, mydb.sql_DESCRIBE_tableName("db1", "t1")) = }')
 
-# t = [[1, "this 1"], [2, "ok 123"], [3, "NO.3"]]
-# print(f'{mydb.SQL(cur, mydb.sql_INSERT_INTO_table_VALUES_tuples("db1", "t1", t)) = }')
+t = [[1, "this 1"], [2, "ok 123"], [3, "NO.3"], [4, "ok 123"]]
+print(f'{mydb.SQL(cur, mydb.sql_INSERT_INTO_table_VALUES_tuples("db1", "t1", t)) = }')
 
 # print(f'{mydb.SQL(cur, mydb.sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password("usr1", "localhost", "666")) = }')
 
@@ -51,6 +51,8 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 print(f'{mydb.SQL(cur, mydb.sql_SELECT_column_FROM_table("db1", "name", "t1")) = }')
 
 print(f'{mydb.SQL(cur, mydb.sql_SELECT_columnList_FROM_table("db1", ["id", "name"], "t1")) = }')
+
+print(f'{mydb.SQL(cur, mydb.sql_SELECT_DISTINCT_column_FROM_table("db1", ["id", "name"], "t1")) = }')
 
 
 

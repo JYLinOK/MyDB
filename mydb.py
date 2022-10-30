@@ -250,16 +250,7 @@ def SQL_create_remote_user(username, ip='%', password=''):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT column FROM tableName
 # T*
-def sql_SELECT_column_FROM_table(db_name, column, table_name):
-    sql = "use " + str(db_name) + "; " + "SELECT " + str(column) + " FROM " + str(table_name) + ";"
-    # print(sql)
-    return sql 
-
-
-# _________________________________________________________________________________________________________________
-# Get SQL code: SELECT * FROM tableName
-# T*
-def sql_SELECT_columnList_FROM_table(db_name, column_list, table_name):
+def sql_SELECT_column_FROM_table(db_name, column_list, table_name):
     column_list_str = ''
     for i in range(len(column_list)):
         if i < len(column_list)-1:
@@ -268,13 +259,37 @@ def sql_SELECT_columnList_FROM_table(db_name, column_list, table_name):
             column_list_str += column_list[i].strip()
 
     sql = "use " + str(db_name) + "; " + "SELECT " + str(column_list_str) + " FROM " + str(table_name) + ";"
+    # print(sql)
+    return sql 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT [column_list] FROM tableName
+# T*
+def sql_SELECT_columnList_FROM_table(db_name, column_list, table_name):
+    return sql_SELECT_column_FROM_table(db_name, column_list, table_name) 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT DISTINCT column FROM tableName
+# T*
+def sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table_name):
+    column_list_str = ''
+    for i in range(len(column_list)):
+        if i < len(column_list)-1:
+            column_list_str += column_list[i].strip() + ','
+        else:
+            column_list_str += column_list[i].strip()
+    sql = "use " + str(db_name) + "; " + "SELECT DISTINCT " + str(column_list_str) + " FROM " + str(table_name) + ";"
     print(sql)
     return sql 
 
 
-
-
-
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT DISTINCT [column_list] FROM tableName
+# T*
+def sql_SELECT_DISTINCT_columnList_FROM_table(db_name, column_list, table_name):
+    return sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table_name) 
 
 
 
