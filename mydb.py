@@ -209,9 +209,53 @@ def sql_SELECT_ALL_FROM_table(db_name, table_name):
 
 
 # _________________________________________________________________________________________________________________
+# 2D list to 1d tuple str
+# T*
+def str2DList_to_1d_tupleStr(str2DList):
+    tupleStr = ''
+    for i in range(len(str2DList)):
+        tuple_i_str = ''
+        if isinstance(str2DList[i], tuple):
+            tuple_i_str = str(str2DList[i])
+        elif isinstance(str2DList[i], list):
+            tuple_i_str = str(tuple(str2DList[i]))
+
+        if i < len(str2DList)-1:
+            tupleStr += tuple_i_str + ','
+        else:
+            tupleStr += tuple_i_str
+    return tupleStr
+
+    
+
+# _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
 # T*
-def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, values_list):
+def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, tuple_list):
+    values_str = str2DList_to_1d_tupleStr(tuple_list)
+    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " VALUES " + values_str + ";"
+    print(f'{sql = }')
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: INSERT INTO tablename (field,field2,...) VALUES (value, value2,...);
+# T*
+def sql_INSERT_INTO_tab2le_VALUES_tuples(db_name, table_name, values_list):
+    fields_str = ''
+    for i in range(len(values_list)):
+        value_i_str = ''
+        if isinstance(values_list[i], tuple):
+            value_i_str = str(values_list[i])
+        elif isinstance(values_list[i], list):
+            value_i_str = str(tuple(values_list[i]))
+
+        if i < len(values_list)-1:
+            values_str += value_i_str + ','
+        else:
+            values_str += value_i_str
+
     values_str = ''
     for i in range(len(values_list)):
         value_i_str = ''
@@ -226,7 +270,9 @@ def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, values_list):
             values_str += value_i_str
 
     sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " VALUES " + values_str + ";"
+    print(f'{sql = }')
     return sql 
+
 
 
 # _________________________________________________________________________________________________________________
@@ -236,6 +282,7 @@ def sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip='localhos
     sql = "CREATE USER '" + str(username) + "'@'" + str(ip) + "' IDENTIFIED BY '" + str(password) + "';"
     # print(sql)
     return sql 
+
 
 
 # _________________________________________________________________________________________________________________
@@ -281,7 +328,7 @@ def sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table_name):
         else:
             column_list_str += column_list[i].strip()
     sql = "use " + str(db_name) + "; " + "SELECT DISTINCT " + str(column_list_str) + " FROM " + str(table_name) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
@@ -292,8 +339,13 @@ def sql_SELECT_DISTINCT_columnList_FROM_table(db_name, column_list, table_name):
     return sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table_name) 
 
 
-
-
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM tableName WHERE condiction
+# T*
+def sql_SELECT_ALL_FROM_table_WHERE_condiction(db_name, table_name, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(condiction) + ";"
+    # print(sql)
+    return sql 
 
 
 

@@ -48,18 +48,18 @@ print(f'{mydb.SQL(cur, mydb.sql_INSERT_INTO_table_VALUES_tuples("db1", "t1", t))
 
 print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 
-print(f'{mydb.SQL(cur, mydb.sql_SELECT_column_FROM_table("db1", "name", "t1")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_SELECT_column_FROM_table("db1", "name", "t1")) = }')
 
-print(f'{mydb.SQL(cur, mydb.sql_SELECT_columnList_FROM_table("db1", ["id", "name"], "t1")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_SELECT_columnList_FROM_table("db1", ["id", "name"], "t1")) = }')
 
-print(f'{mydb.SQL(cur, mydb.sql_SELECT_DISTINCT_column_FROM_table("db1", ["id", "name"], "t1")) = }')
+# print(f'{mydb.SQL(cur, mydb.sql_SELECT_DISTINCT_column_FROM_table("db1", ["id", "name"], "t1")) = }')
+
+# sql = mydb.sql_SELECT_ALL_FROM_table_WHERE_condiction("db1", "t1", "name='ok 123'")
+# print(f"{mydb.SQL(cur, sql) = }")
 
 
 
 
 
-cur.close()
-conn.close()
-
-# SHOW COLUMNS FROM tbl;
-# SHOW COLUMNS FROM tb1;
+# cur.close()
+# conn.close()
