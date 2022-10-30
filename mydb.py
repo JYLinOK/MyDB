@@ -78,7 +78,8 @@ def SQL(cur, sql):
             try:
                 cur.execute(sql_i.strip() + ";")
                 return cur.fetchall()
-            except:
+            except Exception as e:
+                print(f'SQL:{e = }')
                 pass
     
 
@@ -368,6 +369,16 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, 
 
 
 # _________________________________________________________________________________________________________________
+# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., condiction
+# T*
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column_list, table_name, order_lsit, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
+    print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
 # Change key-value list to kv str
 # T*
 def kvList_2_kvStr(kv_list):
@@ -376,7 +387,7 @@ def kvList_2_kvStr(kv_list):
         k_v = kv_list[i]
         k = str(k_v[0])
         if isinstance(k_v[1], str):
-            v = "'" + k_v[1] + "'"
+            v = "'" + str(k_v[1]) + "'"
         else:
             v = str(k_v[1])
         if i < len(kv_list)-1:

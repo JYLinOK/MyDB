@@ -67,14 +67,15 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC("db1", ["id"], "t1", ["name"])
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.kvList_2_kvStr([['a', '123'], ['b', 789]])
-print(sql)
+# sql = mydb.kvList_2_kvStr([['a', '123'], ['b', 789]])
+# print(sql)
 
 # sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction("db1", ["id"], "t1", ["name"], 'ASC')
 # print(f"{mydb.SQL(cur, sql) = }")
 
 
-
+sql = mydb.sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList("db1", "t1", [["id", 123]], [["name", "this 1"]])
+print(f"{mydb.SQL(cur, sql) = }")
 
 
 
