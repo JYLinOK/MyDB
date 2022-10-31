@@ -466,7 +466,7 @@ def sql_SELECT_ALL_FROM_table_LIMIT_num(db_name, table_name, limit_num):
 # T*
 def sql_SELECT_ALL_FROM_table_LIMIT_a_to_b(db_name, table_name, a, b):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " LIMIT " + str(a-1) + "," + str(b-a+1) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
@@ -487,26 +487,36 @@ def sql_str(value):
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_x(db_name, table_name, column, x):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str(x) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column LIKE x
+# Get SQL code:  SELECT * FROM table WHERE column LIKE start with x
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWith_x(db_name, table_name, column, x):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str(x+'%') + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column LIKE x
+# Get SQL code:  SELECT * FROM table WHERE column LIKE end with x
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_endWith_x(db_name, table_name, column, x):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str('%'+x) + ";"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column LIKE between x
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_between_x(db_name, table_name, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str('%'+x+'%') + ";"
     print(sql)
     return sql 
 
