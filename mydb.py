@@ -581,6 +581,16 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db_name, table_nam
 
 
 # _________________________________________________________________________________________________________________
+# Combine the chars list to a str
+# T*
+def combine_chars_to_aStr(chars_list):
+    aStr = ''
+    for char in chars_list:
+        aStr += str(char)
+    return aStr
+
+
+# _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_name, column, letters_list):
