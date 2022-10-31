@@ -265,7 +265,7 @@ def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, tuple_list):
 # _________________________________________________________________________________________________________________
 # Delete the single quotes in a str
 # T*
-def delete_single_quotes_in_str(str):
+def delete_quotes_in_str(str):
     new_str = ''
     for char_i in str:
         if char_i not in ['\'', '"']:
@@ -281,7 +281,7 @@ def sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples(db_name, table_name, fil
     fileds_str_t = tuple(filed_list)
     # values_str = str2DList_to_1d_tupleStr(tuple_list)
     values_str_t = tuple(tuple_list)
-    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " " + delete_single_quotes_in_str(str(fileds_str_t)) + " VALUES " + str(values_str_t) + ";"
+    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " " + delete_quotes_in_str(str(fileds_str_t)) + " VALUES " + str(values_str_t) + ";"
     print(f'{sql = }')
     return sql 
 
@@ -365,7 +365,7 @@ def sql_SELECT_ALL_FROM_table_WHERE_condiction(db_name, table_name, condiction):
 # Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ...
 # T*
 def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, table_name, order_lsit):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + ";"
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + ";"
     print(sql)
     return sql 
 
@@ -375,7 +375,7 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, tabl
 # Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
 # T*
 def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list, table_name, order_lsit):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " DESC;"
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " DESC;"
     # print(sql)
     return sql 
 
@@ -385,7 +385,7 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list,
 # Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
 # T*
 def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, table_name, order_lsit):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " ASC;"
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " ASC;"
     # print(sql)
     return sql 
 
@@ -394,7 +394,7 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, 
 # Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., condiction
 # T*
 def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column_list, table_name, order_lsit, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_single_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_single_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
     print(sql)
     return sql 
 
@@ -575,5 +575,15 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_condiction(db_name, table_name, c
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db_name, table_name, column, condiction):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str(condiction) + ";"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_name, column, letters_list):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " +  + ";"
     # print(sql)
     return sql 
