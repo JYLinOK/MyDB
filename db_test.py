@@ -21,7 +21,7 @@ d = {
     "database": "",
 }
 
-cur_conn = mydb.connect_db_d(d)
+conn, cur = mydb.connect_db_d(d)
 
 # print(f'{mydb.get_version(cur) = }')
 

@@ -23,7 +23,7 @@ def connect_db(user, password, host, port, database):
 def connect_db_d(d):
     conn = mariadb.connect(user=d["user"], password=d["password"], host=d["host"], port=d["port"], database=d["database"])
     cur = conn.cursor()
-    return [cur, conn]
+    return conn, cur
 
 
 
@@ -65,7 +65,6 @@ def SQL_noResult(cur, sql):
 # Add: execute multiple line code function
 # T*
 def SQL(cur, sql):
-
     sql_code_list = []
     if isinstance(sql, str):
         sql_code_list = sql.split(";")
