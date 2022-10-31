@@ -23,7 +23,7 @@ def connect_db(user, password, host, port, database):
 def connect_db_d(d):
     conn = mariadb.connect(user=d["user"], password=d["password"], host=d["host"], port=d["port"], database=d["database"])
     cur = conn.cursor()
-    return conn, cur
+    return [cur, conn]
 
 
 
@@ -65,6 +65,7 @@ def SQL_noResult(cur, sql):
 # Add: execute multiple line code function
 # T*
 def SQL(cur, sql):
+
     sql_code_list = []
     if isinstance(sql, str):
         sql_code_list = sql.split(";")
@@ -425,7 +426,7 @@ def kvList_2_kvStr(kv_list):
 # T*
 def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table_name, column_kv_list, column_conkv_list):
     sql = "use " + str(db_name) + "; " + "UPDATE " + str(table_name) + " SET " + kvList_2_kvStr(column_kv_list) + " WHERE " + kvList_2_kvStr(column_conkv_list) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
@@ -435,15 +436,28 @@ def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table_name,
 # T*
 def sql_DELETE_FROM_table_WHERE_kv(db_name, table_name, column_conkv):
     sql = "use " + str(db_name) + "; " + "DELETE FROM " + str(table_name) + " WHERE " + kvList_2_kvStr([column_conkv]) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: DELETE * FROM table 
+# T*
+def sql_DELETE_ALL_FROM_table_WHERE_kv(db_name, table_name):
+    sql = "use " + str(db_name) + "; " + "DELETE * FROM " + str(table_name) + ";"
+    # print(sql)
+    return sql 
 
 
 
-
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT TOP num * FROM table
+# T*
+def sql_SELECT_TOP_num_ALL_FROM_table(db_name, num, table_name):
+    sql = "use " + str(db_name) + "; " + "SELECT TOP " + str(num) + " * FROM " + str(table_name) + ";"
+    print(sql)
+    return sql 
 
 
 

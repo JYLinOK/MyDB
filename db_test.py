@@ -21,7 +21,7 @@ d = {
     "database": "",
 }
 
-conn, cur = mydb.connect_db_d(d)
+cur_conn = mydb.connect_db_d(d)
 
 # print(f'{mydb.get_version(cur) = }')
 
@@ -77,8 +77,15 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList("db1", "t1", [["id", 1]], [["name", "this 1"]])
 # print(f"{mydb.SQLcommit(cur, conn, sql) = }")
 
-sql = mydb.sql_DELETE_FROM_table_WHERE_kv("db1", "t1", ["id", 2])
-print(f"{mydb.SQLcommit(cur, conn, sql) = }")
+# sql = mydb.sql_DELETE_FROM_table_WHERE_kv("db1", "t1", ["id", 1])
+# print(f"{mydb.SQLcommit(cur, conn, sql) = }")
+
+# sql = mydb.sql_DELETE_FROM_table_WHERE_kv("db1", "t1", ["id", 2])
+# print(f"{mydb.SQLcommit(cur, conn, sql) = }")
+
+
+sql = mydb.sql_SELECT_TOP_num_ALL_FROM_table("db1", 1, "t1")
+print(f"{mydb.SQL(cur, sql) = }")
 
 
 
