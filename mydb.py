@@ -451,10 +451,10 @@ def sql_DELETE_ALL_FROM_table_WHERE_kv(db_name, table_name):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: SELECT TOP num * FROM table
+# Get SQL code:  SELECT * FROM table LIMIT 5; 
 # T*
-def sql_SELECT_TOP_num_ALL_FROM_table(db_name, num, table_name):
-    sql = "use " + str(db_name) + "; " + "SELECT TOP " + str(num) + " * FROM " + str(table_name) + ";"
+def sql_SELECT_ALL_FROM_table_LIMIT_num(db_name, table_name, limit_num):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " LIMIT " + str(limit_num) + ";"
     print(sql)
     return sql 
 
