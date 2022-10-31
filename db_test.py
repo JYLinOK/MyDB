@@ -83,12 +83,11 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_DELETE_FROM_table_WHERE_kv("db1", "t1", ["id", 2])
 # print(f"{mydb.SQLcommit(cur, conn, sql) = }")
 
+# sql = mydb.sql_SELECT_ALL_FROM_table_LIMIT_num("db1", "t1", 3)
+# print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_ALL_FROM_table_LIMIT_num("db1", "t1", 3)
+sql = mydb.sql_SELECT_ALL_FROM_table_LIMIT_a_to_b("db1", "t1", 1, 5)
 print(f"{mydb.SQL(cur, sql) = }")
-
-
-
 
 
 
