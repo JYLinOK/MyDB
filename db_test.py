@@ -86,9 +86,11 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_table_LIMIT_num("db1", "t1", 3)
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_ALL_FROM_table_LIMIT_a_to_b("db1", "t1", 1, 5)
-print(f"{mydb.SQL(cur, sql) = }")
+# sql = mydb.sql_SELECT_ALL_FROM_table_LIMIT_a_to_b("db1", "t1", 1, 5)
+# print(f"{mydb.SQL(cur, sql) = }")
 
+sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_x("db1", "t1", "name", "is 66")
+print(f"{mydb.SQL(cur, sql) = }")
 
 
 

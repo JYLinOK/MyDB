@@ -450,6 +450,7 @@ def sql_DELETE_ALL_FROM_table_WHERE_kv(db_name, table_name):
 
 
 
+
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table LIMIT limit_num; 
 # T*
@@ -457,6 +458,7 @@ def sql_SELECT_ALL_FROM_table_LIMIT_num(db_name, table_name, limit_num):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " LIMIT " + str(limit_num) + ";"
     # print(sql)
     return sql 
+
 
 
 # _________________________________________________________________________________________________________________
@@ -469,7 +471,24 @@ def sql_SELECT_ALL_FROM_table_LIMIT_a_to_b(db_name, table_name, a, b):
 
 
 
+# _________________________________________________________________________________________________________________
+# Get str of a type value when it is used in a SQL code
+# T*
+def sql_str(value):
+    if isinstance(value, str):
+        return "'" + value + "'"
+    else:
+        return str(value)
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column LIKE x
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_x(db_name, table_name, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str(x) + ";"
+    print(sql)
+    return sql 
 
 
 
