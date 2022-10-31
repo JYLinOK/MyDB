@@ -529,3 +529,33 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_x(db_name, table_name, column
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str(x) + ";"
     print(sql)
     return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE start with x
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_startWith_x(db_name, table_name, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str(x+'%') + ";"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE end with x
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_endWith_x(db_name, table_name, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str('%'+x) + ";"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE between x
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_between_x(db_name, table_name, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str('%'+x+'%') + ";"
+    print(sql)
+    return sql 

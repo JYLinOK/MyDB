@@ -98,11 +98,17 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_between_x("db1", "t1", "name", "1")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_x("db1", "t1", "name", "NO.3")
+# sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_x("db1", "t1", "name", "NO.3")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+# sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_startWith_x("db1", "t1", "name", "N")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+# sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_endWith_x("db1", "t1", "name", "3")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_between_x("db1", "t1", "name", "6")
 print(f"{mydb.SQL(cur, sql) = }")
-
-
-
 
 
 
