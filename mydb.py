@@ -502,3 +502,11 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWith_x(db_name, table_name, 
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column LIKE x
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_endWith_x(db_name, table_name, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str('%'+x) + ";"
+    print(sql)
+    return sql 
+
