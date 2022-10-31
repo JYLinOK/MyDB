@@ -113,11 +113,12 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_condiction("db1", "t1", "name", "___123")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction("db1", "t1", "name", "___123")
+# print(f"{mydb.combine_chars_to_aStr(['c', 'h', 'i']) = }")
+
+sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters("db1", "t1", "name", ['o'])
 print(f"{mydb.SQL(cur, sql) = }")
 
 
-print(f"{mydb.combine_chars_to_aStr(['c', 'h', 'i']) = }")
 
 
 

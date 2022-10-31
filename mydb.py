@@ -553,9 +553,9 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_endWith_x(db_name, table_name
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE between x
+# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE include x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_between_x(db_name, table_name, column, x):
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_include_x(db_name, table_name, column, x):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str('%'+x+'%') + ";"
     print(sql)
     return sql 
@@ -594,6 +594,15 @@ def combine_chars_to_aStr(chars_list):
 # Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_name, column, letters_list):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " +  + ";"
-    # print(sql)
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str("[" + combine_chars_to_aStr(letters_list) + "]%")  + ";"
+    print(sql)
     return sql 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
+# T*
+# def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_name, column, letters_list):
+#     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE [" + combine_chars_to_aStr(letters_list) + "]%;"
+#     # print(sql)
+#     return sql 
