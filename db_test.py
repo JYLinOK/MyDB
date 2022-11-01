@@ -139,8 +139,12 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # print(f"{mydb.SQL(cur, sql) = }")
 
 
-sql = mydb.sql_SELECT_column_AS_c_FROM_table("db1", "id", "i", "t1")
+# sql = mydb.sql_SELECT_column_AS_c_FROM_table("db1", "id", "i", "t1")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_SELECT_column_FROM_table_AS_t("db1", "id", "t1", "t")
 print(f"{mydb.SQL(cur, sql) = }")
+
 
 
 
