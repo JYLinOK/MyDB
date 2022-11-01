@@ -748,9 +748,18 @@ def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, ke
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: SELECT * FROM ta RIGHT JOIN b on a.key = b.key
+# Get SQL code: SELECT * FROM ta FULL JOIN b on a.key = b.key
 # T*
-def sql_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " RIGHT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
+def sql_SELECT_ALL_FROM_ta_FULL_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " FULL JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
+    # print(sql)
+    return sql 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM ta FULL OUTER JOIN b on a.key = b.key
+# T*
+def sql_SELECT_ALL_FROM_ta_FULL_OUTER_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " FULL OUTER JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
     print(sql)
     return sql 
