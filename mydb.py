@@ -239,6 +239,17 @@ def combine_chars_to_aStr(chars_list):
     return aStr
 
 
+# _________________________________________________________________________________________________________________
+# Str a tuple
+# T*
+def strTuple(tuple):
+    if not isinstance(tuple, str):
+        return str(tuple)
+    else:
+        return "('" + str(tuple) + "')"
+
+
+
 
 # =================================================================================================================
 
@@ -614,9 +625,6 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db_name, table_nam
 
 
 
-
-
-
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
 # T
@@ -661,8 +669,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db_name, ta
 # Get SQL code:  SELECT * FROM Persons WHERE column IN (tiems tuple)
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_IN_tuple(db_name, table_name, column, tuple):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " IN " + sql_str() + ";"
-    # print(sql)
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " IN " + strTuple(tuple) + ";"
+    print(sql)
     return sql 
 
 
