@@ -8,6 +8,9 @@ version:0.0.1
 '''
 
 
+
+# =================================================================================================================
+# FUNCTIONS OPERATION
 # _________________________________________________________________________________________________________________
 # Connect a database
 # T*
@@ -24,18 +27,6 @@ def connect_db_d(d):
     conn = mariadb.connect(user=d["user"], password=d["password"], host=d["host"], port=d["port"], database=d["database"])
     cur = conn.cursor()
     return conn, cur
-
-
-
-# _________________________________________________________________________________________________________________
-# Split a str in list by split list, return a str splited by enter char
-def split_str_by_spList_ret_enterStr(str, split_list):
-    new_str = ''
-    for char_i in str:
-        if char_i != '\n' and char_i in split_list:
-            char_i = '\n'
-        new_str += char_i
-    return new_str
 
 
 
@@ -132,14 +123,6 @@ def close_db_cur_coon(cur, coon):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: get the version of MariaDB
-# T*
-def sql_SELECT_VERSION():
-    return "SELECT VERSION();"
-
-
-
-# _________________________________________________________________________________________________________________
 # Get the version of MariaDB
 # T*
 def get_version(cur):
@@ -148,14 +131,24 @@ def get_version(cur):
 
 
 
+
 # _________________________________________________________________________________________________________________
-# Get SQL code: DROP_TABLE_IF_EXISTS_MENU
+# Create remote user
 # T*
-def sql_DROP_TABLE_IF_EXISTS_table(table_name):
-    return "DROP TABLE IF EXISTS " + str(table_name) + ";"
+def SQL_create_remote_user(username, ip='%', password=''):
+    sql = sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip, password)
+    return sql 
 
 
 
+# =================================================================================================================
+
+
+
+
+
+# =================================================================================================================
+# TOOLS
 # _________________________________________________________________________________________________________________
 # Add items of a list to be a big str
 def str2DList_to_1str(strList, add_char=","):
@@ -170,6 +163,120 @@ def str2DList_to_1str(strList, add_char=","):
         one_str += str_i
 
     return one_str
+
+
+
+# _________________________________________________________________________________________________________________
+# 2D list to 1d tuple str
+# T*
+def str2DList_to_1d_tupleStr(str2DList):
+    tupleStr = ''
+    for i in range(len(str2DList)):
+        tuple_i_str = ''
+        if isinstance(str2DList[i], tuple):
+            tuple_i_str = str(str2DList[i])
+        elif isinstance(str2DList[i], list):
+            tuple_i_str = str(tuple(str2DList[i]))
+
+        if i < len(str2DList)-1:
+            tupleStr += tuple_i_str + ','
+        else:
+            tupleStr += tuple_i_str
+    return tupleStr
+
+
+
+# _________________________________________________________________________________________________________________
+# Delete the single quotes in a str
+# T*
+def delete_quotes_in_str(str):
+    new_str = ''
+    for char_i in str:
+        if char_i not in ['\'', '"']:
+            new_str += char_i
+    return new_str
+
+
+
+# _________________________________________________________________________________________________________________
+# Change key-value list to kv str
+# T*
+def kvList_2_kvStr(kv_list):
+    kvStr = ''
+    for i in range(len(kv_list)):
+        k_v = kv_list[i]
+        k = str(k_v[0])
+        if isinstance(k_v[1], str):
+            v = "'" + str(k_v[1]) + "'"
+        else:
+            v = str(k_v[1])
+        if i < len(kv_list)-1:
+            kvStr += k + ' = ' + v + ','
+        else:
+            kvStr += k + ' = ' + v
+    return kvStr
+
+
+
+# _________________________________________________________________________________________________________________
+# Get str of a type value when it is used in a SQL code
+# T*
+def sql_str(value):
+    if isinstance(value, str):
+        return "'" + value + "'"
+    else:
+        return str(value)
+
+
+
+# _________________________________________________________________________________________________________________
+# Combine the chars list to a str
+# T*
+def combine_chars_to_aStr(chars_list):
+    aStr = ''
+    for char in chars_list:
+        aStr += str(char)
+    return aStr
+
+
+
+# =================================================================================================================
+
+
+
+
+
+# =================================================================================================================
+# SQL
+# _________________________________________________________________________________________________________________
+# Split a str in list by split list, return a str splited by enter char
+def split_str_by_spList_ret_enterStr(str, split_list):
+    new_str = ''
+    for char_i in str:
+        if char_i != '\n' and char_i in split_list:
+            char_i = '\n'
+        new_str += char_i
+    return new_str
+
+
+
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: get the version of MariaDB
+# T*
+def sql_SELECT_VERSION():
+    return "SELECT VERSION();"
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: DROP_TABLE_IF_EXISTS_MENU
+# T*
+def sql_DROP_TABLE_IF_EXISTS_table(table_name):
+    return "DROP TABLE IF EXISTS " + str(table_name) + ";"
+
 
 
 # _________________________________________________________________________________________________________________
@@ -232,26 +339,6 @@ def sql_SELECT_ALL_FROM_table(db_name, table_name):
 
 
 # _________________________________________________________________________________________________________________
-# 2D list to 1d tuple str
-# T*
-def str2DList_to_1d_tupleStr(str2DList):
-    tupleStr = ''
-    for i in range(len(str2DList)):
-        tuple_i_str = ''
-        if isinstance(str2DList[i], tuple):
-            tuple_i_str = str(str2DList[i])
-        elif isinstance(str2DList[i], list):
-            tuple_i_str = str(tuple(str2DList[i]))
-
-        if i < len(str2DList)-1:
-            tupleStr += tuple_i_str + ','
-        else:
-            tupleStr += tuple_i_str
-    return tupleStr
-
-
-
-# _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
 # T*
 def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, tuple_list):
@@ -259,18 +346,6 @@ def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, tuple_list):
     sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " VALUES " + values_str + ";"
     # print(f'{sql = }')
     return sql 
-
-
-
-# _________________________________________________________________________________________________________________
-# Delete the single quotes in a str
-# T*
-def delete_quotes_in_str(str):
-    new_str = ''
-    for char_i in str:
-        if char_i not in ['\'', '"']:
-            new_str += char_i
-    return new_str
 
 
 
@@ -293,15 +368,6 @@ def sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples(db_name, table_name, fil
 def sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip='localhost', password=''):
     sql = "CREATE USER '" + str(username) + "'@'" + str(ip) + "' IDENTIFIED BY '" + str(password) + "';"
     # print(sql)
-    return sql 
-
-
-
-# _________________________________________________________________________________________________________________
-# Create remote user
-# T*
-def SQL_create_remote_user(username, ip='%', password=''):
-    sql = sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip, password)
     return sql 
 
 
@@ -401,26 +467,6 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column
 
 
 # _________________________________________________________________________________________________________________
-# Change key-value list to kv str
-# T*
-def kvList_2_kvStr(kv_list):
-    kvStr = ''
-    for i in range(len(kv_list)):
-        k_v = kv_list[i]
-        k = str(k_v[0])
-        if isinstance(k_v[1], str):
-            v = "'" + str(k_v[1]) + "'"
-        else:
-            v = str(k_v[1])
-        if i < len(kv_list)-1:
-            kvStr += k + ' = ' + v + ','
-        else:
-            kvStr += k + ' = ' + v
-    return kvStr
-
-
-
-# _________________________________________________________________________________________________________________
 # Get SQL code: UPDATE table SET column_kv_list WHERE column_conkv_list
 # T*
 def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table_name, column_kv_list, column_conkv_list):
@@ -450,7 +496,6 @@ def sql_DELETE_ALL_FROM_table_WHERE_kv(db_name, table_name):
 
 
 
-
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table LIMIT limit_num; 
 # T*
@@ -468,17 +513,6 @@ def sql_SELECT_ALL_FROM_table_LIMIT_a_to_b(db_name, table_name, a, b):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " LIMIT " + str(a-1) + "," + str(b-a+1) + ";"
     # print(sql)
     return sql 
-
-
-
-# _________________________________________________________________________________________________________________
-# Get str of a type value when it is used in a SQL code
-# T*
-def sql_str(value):
-    if isinstance(value, str):
-        return "'" + value + "'"
-    else:
-        return str(value)
 
 
 
@@ -580,14 +614,6 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db_name, table_nam
 
 
 
-# _________________________________________________________________________________________________________________
-# Combine the chars list to a str
-# T*
-def combine_chars_to_aStr(chars_list):
-    aStr = ''
-    for char in chars_list:
-        aStr += str(char)
-    return aStr
 
 
 
@@ -628,3 +654,15 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db_name, ta
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
     # print(sql)
     return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM Persons WHERE column IN (tiems tuple)
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_IN_tuple(db_name, table_name, column, tuple):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " IN " + sql_str() + ";"
+    # print(sql)
+    return sql 
+
+
