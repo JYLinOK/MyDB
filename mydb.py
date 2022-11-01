@@ -691,6 +691,9 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple(db_name, table_name, colu
 # Get SQL code:  SELECT * FROM Persons WHERE column BETWEEN a AND b
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b(db_name, table_name, column, a, b):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " BETWEEN " + sql_str(a) + "AND" + sql_str(b) + ";"
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " BETWEEN " + sql_str(a) + " AND " + sql_str(b) + ";"
     # print(sql)
     return sql 
+
+
+

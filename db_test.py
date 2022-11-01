@@ -131,12 +131,34 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # print(f"{mydb.SQL(cur, sql) = }")
 
 
-sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple("db1", "t1", "name", ("is 66"))
+# sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple("db1", "t1", "name", ("is 66"))
+# print(f"{mydb.SQL(cur, sql) = }")
+
+
+sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b("db1", "t1", "id", 2, 3)
 print(f"{mydb.SQL(cur, sql) = }")
 
 
-# sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple("db1", "t1", "name", ("is 66"))
-# print(f"{mydb.SQL(cur, sql) = }")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
