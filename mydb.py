@@ -590,19 +590,41 @@ def combine_chars_to_aStr(chars_list):
     return aStr
 
 
+
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
-# T*
+# T
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_name, column, letters_list):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str("[" + combine_chars_to_aStr(letters_list) + "]%")  + ";"
     print(sql)
     return sql 
 
 
+
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
+# Get SQL code:  SELECT * FROM table WHERE column LIKE notstartWithLetters
+# T
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_notStartWithLetters(db_name, table_name, column, letters_list):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE [!" + combine_chars_to_aStr(letters_list) + "]%;"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column LIKE BINARY condiction
 # T*
-# def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_name, column, letters_list):
-#     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE [" + combine_chars_to_aStr(letters_list) + "]%;"
-#     # print(sql)
-#     return sql 
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_BINARY_condiction(db_name, table_name, column, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
+    print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE BINARY condiction
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db_name, table_name, column, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
+    # print(sql)
+    return sql 
