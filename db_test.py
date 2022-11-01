@@ -145,12 +145,14 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_column_FROM_table_AS_t("db1", "id", "t1", "t")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_column_AS_c_FROM_table_AS_t("db1", "id", "i",  "t1", "t")
+# sql = mydb.sql_SELECT_column_AS_c_FROM_table_AS_t("db1", "id", "i",  "t1", "t")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+# sql = mydb.sql_SELECT_ALL_FROM_ta_INNER_JOIN_tb_ON_taKey_equal_tbKey("db1", "t1", "tb1", "id")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey("db1", "t1", "tb1", "id")
 print(f"{mydb.SQL(cur, sql) = }")
-
-
-
-
 
 
 

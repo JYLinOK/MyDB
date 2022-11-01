@@ -718,12 +718,29 @@ def sql_SELECT_column_FROM_table_AS_t(db_name, column, table_name, t):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: SELECT column FROM table AS t
+# Get SQL code: SELECT column AS c FROM table AS t
 # T*
 def sql_SELECT_column_AS_c_FROM_table_AS_t(db_name, column, c, table_name, t):
     sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " AS " + str(c) +  " FROM " + str(table_name) + " AS " + str(t) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM ta [inner] JOIN b on a.key = b.key
+# T*
+def sql_SELECT_ALL_FROM_ta_INNER_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " INNER JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM ta LEFT JOIN b on a.key = b.key
+# T*
+def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " LEFT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
+    # print(sql)
+    return sql 
