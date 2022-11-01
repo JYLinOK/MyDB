@@ -670,7 +670,27 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db_name, ta
 # T*
 def sql_SELECT_ALL_FROM_tabl_WHERE_column_IN_tuple(db_name, table_name, column, tuple):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " IN " + strTuple(tuple) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM Persons WHERE column IN (tiems tuple)
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple(db_name, table_name, column, tuple):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT IN " + strTuple(tuple) + ";"
+    # print(sql)
+    return sql 
+
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code:  SELECT * FROM Persons WHERE column BETWEEN a AND b
+# T*
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b(db_name, table_name, column, a, b):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " BETWEEN " + sql_str(a) + "AND" + sql_str(b) + ";"
+    # print(sql)
+    return sql 
