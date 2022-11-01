@@ -697,3 +697,13 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b(db_name, table_name, c
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT column FROM table AS alias_table
+# T*
+def sql_SELECT_column_AS_c_FROM_table(db_name, column, c, table_name):
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " AS " + str(c) + " FROM " + str(table_name) + ";"
+    print(sql)
+    return sql 
+
+
+
