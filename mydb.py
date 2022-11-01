@@ -744,3 +744,13 @@ def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, ke
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " LEFT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
     # print(sql)
     return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM ta RIGHT JOIN b on a.key = b.key
+# T*
+def sql_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " RIGHT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
+    print(sql)
+    return sql 
