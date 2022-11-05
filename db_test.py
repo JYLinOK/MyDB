@@ -24,11 +24,10 @@ d = {
 conn, cur = mydb.connect_db_d(d)
 
 # print(f'{mydb.get_version(cur) = }')
-
-a = [
-    "id int not null",
-    "name char(10)"
-]
+# a = [
+#     "id int not null",
+#     "name char(10)"
+# ]
 
 
 print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
@@ -223,12 +222,8 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]", "b")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]")
-print(f"{mydb.SQL(cur, sql) = }")
-
-
-
-
+# sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]")
+# print(f"{mydb.SQL(cur, sql) = }")
 
 
 

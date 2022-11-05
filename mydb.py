@@ -429,16 +429,6 @@ def get_SQL_Server_Date_CONVERT():
         "131 = dd/mm/yy hh:mi:ss:mmmAM"
     ]
 
-
-
-
-
-
-
-
-
-
-
 # =================================================================================================================
 
 
@@ -1267,17 +1257,6 @@ def sql_DROP_VIEW_view(db, view):
     sql = "use " + str(db) + "; " + "DROP VIEW " + str(view) + ";" 
     # print(sql)
     return sql
-
-
-
-
-
-
-
-
-
-
-
 
 
 
