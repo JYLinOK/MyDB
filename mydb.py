@@ -886,12 +886,20 @@ def sql_DROP_INDEX_table_DOT_index(table, index):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: DROP INDEX table_name.index_name (for IBM DB2 and Oracle)
+# Get SQL code: DROP INDEX index_name (for IBM DB2 and Oracle)
 # T*
-def sql_DROP_INDEX_table_DOT_index(index):
+def sql_DROP_INDEX_index(index):
     sql = "DROP INDEX " + str(index) + ";" 
-    print(sql)
+    # print(sql)
     return sql
 
 
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: ALTER TABLE table DROP INDEX index (for mysql)
+# T*
+def sql_ALTER_TABLE_table_DROP_INDEX_index(db_name, table, index):
+    sql = "use " + str(db_name) + "; " + "ALTER TABLE " + str(table) + " DROP INDEX " + str(index) + ";" 
+    print(sql)
+    return sql
 

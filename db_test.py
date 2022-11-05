@@ -193,13 +193,14 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_DROP_INDEX_index_ON_table("db1", 1, "t1")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-# sql = mydb.sql_DROP_INDEX_table_DOT_index("db1", "t1", 1)
+# sql = mydb.sql_DROP_INDEX_table_DOT_index("t1", 1)
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_DROP_INDEX_table_DOT_index(1)
+# sql = mydb.sql_DROP_INDEX_index(1)
+# print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_ALTER_TABLE_table_DROP_INDEX_index("db1", "t1", 1)
 print(f"{mydb.SQL(cur, sql) = }")
-
-
 
 
 
