@@ -131,6 +131,20 @@ def get_version(cur):
 
 
 
+# _________________________________________________________________________________________________________________
+# Get the Constraints of SQL
+# T*
+def get_Constraints():
+    return [
+        "NOT NULL",
+        "UNIQUE",
+        "PRIMARY KEY",
+        "FOREIGN KEY",
+        "CHECK",
+        "DEFAULT",
+    ]
+
+
 
 # _________________________________________________________________________________________________________________
 # Create remote user
@@ -848,6 +862,11 @@ def sql_CREATE_DATABASE_db_name(db_name):
     sql = "CREATE DATABASE " + str(db_name) + ";" 
     # print(sql)
     return sql
+
+
+
+
+
 
 
 
