@@ -868,8 +868,8 @@ def sql_CREATE_DATABASE_db_name(db_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP INDEX index_name ON table_name (for Microsoft SQLJet and Microsoft Access)
 # T*
-def sql_DROP_INDEX_index_ON_table(db_name, index, table):
-    sql = "use " + str(db_name) + "; " + "DROP INDEX " + str(index) + " ON " + str(table) + ";" 
+def sql_DROP_INDEX_index_ON_table(index, table):
+    sql = "DROP INDEX " + str(index) + " ON " + str(table) + ";" 
     # print(sql)
     return sql
 
@@ -878,11 +878,20 @@ def sql_DROP_INDEX_index_ON_table(db_name, index, table):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP INDEX table_name.index_name (for MS SQL Server)
 # T*
-def sql_DROP_INDEX_table_DOT_index(db_name, table, index):
-    sql = "use " + str(db_name) + "; " + "DROP INDEX " + str(table) + "." + str(index) + ";" 
-    print(sql)
+def sql_DROP_INDEX_table_DOT_index(table, index):
+    sql = "DROP INDEX " + str(table) + "." + str(index) + ";" 
+    # print(sql)
     return sql
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: DROP INDEX table_name.index_name (for IBM DB2 and Oracle)
+# T*
+def sql_DROP_INDEX_table_DOT_index(index):
+    sql = "DROP INDEX " + str(index) + ";" 
+    print(sql)
+    return sql
 
 
 
