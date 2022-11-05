@@ -296,8 +296,8 @@ def sql_SELECT_VERSION():
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP_TABLE_IF_EXISTS_MENU
 # T*
-def sql_DROP_TABLE_IF_EXISTS_table(table_name):
-    return "DROP TABLE IF EXISTS " + str(table_name) + ";"
+def sql_DROP_TABLE_IF_EXISTS_table(table):
+    return "DROP TABLE IF EXISTS " + str(table) + ";"
 
 
 
@@ -311,9 +311,9 @@ def sql_SHOW_TABLES(db_name):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: CREATE TABLE table_name(table_detail_list)
+# Get SQL code: CREATE TABLE table(table_detail_list)
 # T*
-def sql_CREATE_TABLE_table_tDetail(db_name, table_name, table_detail):
+def sql_CREATE_TABLE_table_tDetail(db_name, table, table_detail):
     sql = ''
     str_table_detail = ''
     if isinstance(table_detail, str):
@@ -321,7 +321,7 @@ def sql_CREATE_TABLE_table_tDetail(db_name, table_name, table_detail):
     elif isinstance(table_detail, list):
         str_table_detail = str2DList_to_1str(table_detail)
         
-    sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table_name) + "(" + str_table_detail + ");"
+    sql = "use " + str(db_name) + "; " + "CREATE TABLE " + str(table) + "(" + str_table_detail + ");"
     return sql 
 
 
@@ -329,8 +329,8 @@ def sql_CREATE_TABLE_table_tDetail(db_name, table_name, table_detail):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP TABLE tableName
 # T*
-def sql_DROP_TABLE_table(db_name, table_name):
-    sql = "use " + str(db_name) + "; " + "DROP TABLE " + str(table_name) + ";"
+def sql_DROP_TABLE_table(db_name, table):
+    sql = "use " + str(db_name) + "; " + "DROP TABLE " + str(table) + ";"
     return sql 
 
 
@@ -338,8 +338,8 @@ def sql_DROP_TABLE_table(db_name, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DESCRIBE tableName;
 # T*
-def sql_DESCRIBE_table(db_name, table_name):
-    sql = "use " + str(db_name) + "; " + "DESCRIBE " + str(table_name) + ";"
+def sql_DESCRIBE_table(db_name, table):
+    sql = "use " + str(db_name) + "; " + "DESCRIBE " + str(table) + ";"
     print(sql)
     return sql 
 
@@ -347,16 +347,16 @@ def sql_DESCRIBE_table(db_name, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SHOW COLUMNS FROM tableName
 # T*
-def sql_SHOW_COLUMNS_FROM_table(db_name, table_name):
-    sql = "SHOW COLUMNS FROM " + str(table_name) + " FROM " +  str(db_name) + ";"
+def sql_SHOW_COLUMNS_FROM_table(db_name, table):
+    sql = "SHOW COLUMNS FROM " + str(table) + " FROM " +  str(db_name) + ";"
     return sql 
 
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT * FROM tableName
 # T*
-def sql_SELECT_ALL_FROM_table(db_name, table_name):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + ";"
+def sql_SELECT_ALL_FROM_table(db_name, table):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + ";"
     return sql 
 
 
@@ -364,9 +364,9 @@ def sql_SELECT_ALL_FROM_table(db_name, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
 # T*
-def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, tuple_list):
+def sql_INSERT_INTO_table_VALUES_tuples(db_name, table, tuple_list):
     values_str = str2DList_to_1d_tupleStr(tuple_list)
-    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " VALUES " + values_str + ";"
+    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table) + " VALUES " + values_str + ";"
     # print(f'{sql = }')
     return sql 
 
@@ -375,11 +375,11 @@ def sql_INSERT_INTO_table_VALUES_tuples(db_name, table_name, tuple_list):
 # _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tablename (field,field2,...) VALUES (value, value2,...);
 # T*
-def sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples(db_name, table_name, filed_list, tuple_list):
+def sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples(db_name, table, filed_list, tuple_list):
     fileds_str_t = tuple(filed_list)
     # values_str = str2DList_to_1d_tupleStr(tuple_list)
     values_str_t = tuple(tuple_list)
-    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table_name) + " " + delete_quotes_in_str(str(fileds_str_t)) + " VALUES " + str(values_str_t) + ";"
+    sql = "use " + str(db_name) + "; " + "INSERT INTO " + str(table) + " " + delete_quotes_in_str(str(fileds_str_t)) + " VALUES " + str(values_str_t) + ";"
     print(f'{sql = }')
     return sql 
 
@@ -398,7 +398,7 @@ def sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password(username, ip='localhos
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT column FROM tableName
 # T*
-def sql_SELECT_column_FROM_table(db_name, column_list, table_name):
+def sql_SELECT_column_FROM_table(db_name, column_list, table):
     column_list_str = ''
     for i in range(len(column_list)):
         if i < len(column_list)-1:
@@ -406,7 +406,7 @@ def sql_SELECT_column_FROM_table(db_name, column_list, table_name):
         else:
             column_list_str += column_list[i].strip()
 
-    sql = "use " + str(db_name) + "; " + "SELECT " + str(column_list_str) + " FROM " + str(table_name) + ";"
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column_list_str) + " FROM " + str(table) + ";"
     # print(sql)
     return sql 
 
@@ -414,21 +414,21 @@ def sql_SELECT_column_FROM_table(db_name, column_list, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT [column_list] FROM tableName
 # T*
-def sql_SELECT_columnList_FROM_table(db_name, column_list, table_name):
-    return sql_SELECT_column_FROM_table(db_name, column_list, table_name) 
+def sql_SELECT_columnList_FROM_table(db_name, column_list, table):
+    return sql_SELECT_column_FROM_table(db_name, column_list, table) 
 
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT DISTINCT column FROM tableName
 # T*
-def sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table_name):
+def sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table):
     column_list_str = ''
     for i in range(len(column_list)):
         if i < len(column_list)-1:
             column_list_str += column_list[i].strip() + ','
         else:
             column_list_str += column_list[i].strip()
-    sql = "use " + str(db_name) + "; " + "SELECT DISTINCT " + str(column_list_str) + " FROM " + str(table_name) + ";"
+    sql = "use " + str(db_name) + "; " + "SELECT DISTINCT " + str(column_list_str) + " FROM " + str(table) + ";"
     # print(sql)
     return sql 
 
@@ -436,15 +436,15 @@ def sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT DISTINCT [column_list] FROM tableName
 # T*
-def sql_SELECT_DISTINCT_columnList_FROM_table(db_name, column_list, table_name):
-    return sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table_name) 
+def sql_SELECT_DISTINCT_columnList_FROM_table(db_name, column_list, table):
+    return sql_SELECT_DISTINCT_column_FROM_table(db_name, column_list, table) 
 
 
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT * FROM tableName WHERE condiction
 # T*
-def sql_SELECT_ALL_FROM_table_WHERE_condiction(db_name, table_name, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(condiction) + ";"
+def sql_SELECT_ALL_FROM_table_WHERE_condiction(db_name, table, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(condiction) + ";"
     # print(sql)
     return sql 
 
@@ -453,8 +453,8 @@ def sql_SELECT_ALL_FROM_table_WHERE_condiction(db_name, table_name, condiction):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ...
 # T*
-def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, table_name, order_lsit):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + ";"
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, table, order_lsit):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + ";"
     print(sql)
     return sql 
 
@@ -463,8 +463,8 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList(db_name, column_list, tabl
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
 # T*
-def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list, table_name, order_lsit):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " DESC;"
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list, table, order_lsit):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " DESC;"
     # print(sql)
     return sql 
 
@@ -473,8 +473,8 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_DESC(db_name, column_list,
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT fileds, ... FROM Orders ORDER BY orders, ..., DESC
 # T*
-def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, table_name, order_lsit):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " ASC;"
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, table, order_lsit):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " ASC;"
     # print(sql)
     return sql 
 
@@ -482,8 +482,8 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db_name, column_list, 
 # _________________________________________________________________________________________________________________
 # Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., condiction
 # T*
-def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column_list, table_name, order_lsit, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table_name) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column_list, table, order_lsit, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
     print(sql)
     return sql 
 
@@ -492,8 +492,8 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db_name, column
 # _________________________________________________________________________________________________________________
 # Get SQL code: UPDATE table SET column_kv_list WHERE column_conkv_list
 # T*
-def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table_name, column_kv_list, column_conkv_list):
-    sql = "use " + str(db_name) + "; " + "UPDATE " + str(table_name) + " SET " + kvList_2_kvStr(column_kv_list) + " WHERE " + kvList_2_kvStr(column_conkv_list) + ";"
+def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table, column_kv_list, column_conkv_list):
+    sql = "use " + str(db_name) + "; " + "UPDATE " + str(table) + " SET " + kvList_2_kvStr(column_kv_list) + " WHERE " + kvList_2_kvStr(column_conkv_list) + ";"
     # print(sql)
     return sql 
 
@@ -502,8 +502,8 @@ def sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList(db_name, table_name,
 # _________________________________________________________________________________________________________________
 # Get SQL code: DELETE FROM table WHERE k=v
 # T*
-def sql_DELETE_FROM_table_WHERE_kv(db_name, table_name, column_conkv):
-    sql = "use " + str(db_name) + "; " + "DELETE FROM " + str(table_name) + " WHERE " + kvList_2_kvStr([column_conkv]) + ";"
+def sql_DELETE_FROM_table_WHERE_kv(db_name, table, column_conkv):
+    sql = "use " + str(db_name) + "; " + "DELETE FROM " + str(table) + " WHERE " + kvList_2_kvStr([column_conkv]) + ";"
     # print(sql)
     return sql 
 
@@ -512,8 +512,8 @@ def sql_DELETE_FROM_table_WHERE_kv(db_name, table_name, column_conkv):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DELETE * FROM table 
 # T*
-def sql_DELETE_ALL_FROM_table_WHERE_kv(db_name, table_name):
-    sql = "use " + str(db_name) + "; " + "DELETE * FROM " + str(table_name) + ";"
+def sql_DELETE_ALL_FROM_table_WHERE_kv(db_name, table):
+    sql = "use " + str(db_name) + "; " + "DELETE * FROM " + str(table) + ";"
     # print(sql)
     return sql 
 
@@ -522,8 +522,8 @@ def sql_DELETE_ALL_FROM_table_WHERE_kv(db_name, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table LIMIT limit_num; 
 # T*
-def sql_SELECT_ALL_FROM_table_LIMIT_num(db_name, table_name, limit_num):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " LIMIT " + str(limit_num) + ";"
+def sql_SELECT_ALL_FROM_table_LIMIT_num(db_name, table, limit_num):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " LIMIT " + str(limit_num) + ";"
     # print(sql)
     return sql 
 
@@ -532,8 +532,8 @@ def sql_SELECT_ALL_FROM_table_LIMIT_num(db_name, table_name, limit_num):
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table LIMIT a,b; 
 # T*
-def sql_SELECT_ALL_FROM_table_LIMIT_a_to_b(db_name, table_name, a, b):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " LIMIT " + str(a-1) + "," + str(b-a+1) + ";"
+def sql_SELECT_ALL_FROM_table_LIMIT_a_to_b(db_name, table, a, b):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " LIMIT " + str(a-1) + "," + str(b-a+1) + ";"
     # print(sql)
     return sql 
 
@@ -542,8 +542,8 @@ def sql_SELECT_ALL_FROM_table_LIMIT_a_to_b(db_name, table_name, a, b):
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str(x) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str(x) + ";"
     # print(sql)
     return sql 
 
@@ -552,8 +552,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_x(db_name, table_name, column, x)
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE start with x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWith_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str(x+'%') + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWith_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str(x+'%') + ";"
     # print(sql)
     return sql 
 
@@ -562,8 +562,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWith_x(db_name, table_name, 
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE end with x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_endWith_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str('%'+x) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_endWith_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str('%'+x) + ";"
     # print(sql)
     return sql 
 
@@ -572,8 +572,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_endWith_x(db_name, table_name, co
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE between x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_between_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str('%'+x+'%') + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_between_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str('%'+x+'%') + ";"
     print(sql)
     return sql 
 
@@ -582,8 +582,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_between_x(db_name, table_name, co
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column NOT LIKE x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str(x) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE " + sql_str(x) + ";"
     print(sql)
     return sql 
 
@@ -592,8 +592,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_x(db_name, table_name, column
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column NOT LIKE start with x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_startWith_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str(x+'%') + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_startWith_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE " + sql_str(x+'%') + ";"
     # print(sql)
     return sql 
 
@@ -602,8 +602,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_startWith_x(db_name, table_na
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column NOT LIKE end with x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_endWith_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str('%'+x) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_endWith_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE " + sql_str('%'+x) + ";"
     # print(sql)
     return sql 
 
@@ -612,8 +612,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_endWith_x(db_name, table_name
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column NOT LIKE include x
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_include_x(db_name, table_name, column, x):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str('%'+x+'%') + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_include_x(db_name, table, column, x):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE " + sql_str('%'+x+'%') + ";"
     print(sql)
     return sql 
 
@@ -621,8 +621,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_include_x(db_name, table_name
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE condiction
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_condiction(db_name, table_name, column, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str(condiction) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_condiction(db_name, table, column, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str(condiction) + ";"
     # print(sql)
     return sql 
 
@@ -630,8 +630,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_condiction(db_name, table_name, c
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column NOT LIKE condiction
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db_name, table_name, column, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE " + sql_str(condiction) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db_name, table, column, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE " + sql_str(condiction) + ";"
     # print(sql)
     return sql 
 
@@ -640,8 +640,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db_name, table_nam
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE startWithLetters
 # T
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_name, column, letters_list):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE " + sql_str("[" + combine_chars_to_aStr(letters_list) + "]%")  + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table, column, letters_list):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str("[" + combine_chars_to_aStr(letters_list) + "]%")  + ";"
     print(sql)
     return sql 
 
@@ -650,8 +650,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_startWithLetters(db_name, table_n
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE notstartWithLetters
 # T
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_notStartWithLetters(db_name, table_name, column, letters_list):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE [!" + combine_chars_to_aStr(letters_list) + "]%;"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_notStartWithLetters(db_name, table, column, letters_list):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE [!" + combine_chars_to_aStr(letters_list) + "]%;"
     # print(sql)
     return sql 
 
@@ -660,8 +660,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_notStartWithLetters(db_name, tabl
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column LIKE BINARY condiction
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_BINARY_condiction(db_name, table_name, column, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_BINARY_condiction(db_name, table, column, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
     print(sql)
     return sql 
 
@@ -670,8 +670,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_BINARY_condiction(db_name, table_
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM table WHERE column NOT LIKE BINARY condiction
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db_name, table_name, column, condiction):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db_name, table, column, condiction):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
     # print(sql)
     return sql 
 
@@ -680,8 +680,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db_name, ta
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM Persons WHERE column IN (tiems tuple)
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_IN_tuple(db_name, table_name, column, tuple):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " IN " + strTuple(tuple) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_IN_tuple(db_name, table, column, tuple):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " IN " + strTuple(tuple) + ";"
     # print(sql)
     return sql 
 
@@ -691,8 +691,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_IN_tuple(db_name, table_name, column, 
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM Persons WHERE column IN (tiems tuple)
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple(db_name, table_name, column, tuple):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " NOT IN " + strTuple(tuple) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple(db_name, table, column, tuple):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT IN " + strTuple(tuple) + ";"
     # print(sql)
     return sql 
 
@@ -702,8 +702,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple(db_name, table_name, colu
 # _________________________________________________________________________________________________________________
 # Get SQL code:  SELECT * FROM Persons WHERE column BETWEEN a AND b
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b(db_name, table_name, column, a, b):
-    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table_name) + " WHERE " + str(column) + " BETWEEN " + sql_str(a) + " AND " + sql_str(b) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b(db_name, table, column, a, b):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " BETWEEN " + sql_str(a) + " AND " + sql_str(b) + ";"
     # print(sql)
     return sql 
 
@@ -712,8 +712,8 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b(db_name, table_name, c
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT column AS c FROM table 
 # T*
-def sql_SELECT_column_AS_c_FROM_table(db_name, column, c, table_name):
-    sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " AS " + str(c) + " FROM " + str(table_name) + ";"
+def sql_SELECT_column_AS_c_FROM_table(db_name, column, c, table):
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " AS " + str(c) + " FROM " + str(table) + ";"
     # print(sql)
     return sql 
 
@@ -722,8 +722,8 @@ def sql_SELECT_column_AS_c_FROM_table(db_name, column, c, table_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT column FROM table AS t
 # T*
-def sql_SELECT_column_FROM_table_AS_t(db_name, column, table_name, t):
-    sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " FROM " + str(table_name) + " AS " + str(t) + ";"
+def sql_SELECT_column_FROM_table_AS_t(db_name, column, table, t):
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " FROM " + str(table) + " AS " + str(t) + ";"
     # print(sql)
     return sql 
 
@@ -732,8 +732,8 @@ def sql_SELECT_column_FROM_table_AS_t(db_name, column, table_name, t):
 # _________________________________________________________________________________________________________________
 # Get SQL code: SELECT column AS c FROM table AS t
 # T*
-def sql_SELECT_column_AS_c_FROM_table_AS_t(db_name, column, c, table_name, t):
-    sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " AS " + str(c) +  " FROM " + str(table_name) + " AS " + str(t) + ";"
+def sql_SELECT_column_AS_c_FROM_table_AS_t(db_name, column, c, table, t):
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(column)  + " AS " + str(c) +  " FROM " + str(table) + " AS " + str(t) + ";"
     # print(sql)
     return sql 
 
@@ -866,7 +866,7 @@ def sql_CREATE_DATABASE_db_name(db_name):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: DROP INDEX index_name ON table_name (for Microsoft SQLJet and Microsoft Access)
+# Get SQL code: DROP INDEX index_name ON table (for Microsoft SQLJet and Microsoft Access)
 # T*
 def sql_DROP_INDEX_index_ON_table(index, table):
     sql = "DROP INDEX " + str(index) + " ON " + str(table) + ";" 
@@ -876,7 +876,7 @@ def sql_DROP_INDEX_index_ON_table(index, table):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: DROP INDEX table_name.index_name (for MS SQL Server)
+# Get SQL code: DROP INDEX table.index_name (for MS SQL Server)
 # T*
 def sql_DROP_INDEX_table_DOT_index(table, index):
     sql = "DROP INDEX " + str(table) + "." + str(index) + ";" 
