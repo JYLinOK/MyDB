@@ -917,11 +917,21 @@ def sql_DROP_INDEX_index(index):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: ALTER TABLE table DROP INDEX index (for mysql)
+# Get SQL code: ALTER TABLE table DROP INDEX index 
 # T*
 def sql_ALTER_TABLE_table_DROP_INDEX_index(db, table, index):
     sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " DROP INDEX " + str(index) + ";" 
     # print(sql)
+    return sql
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: ALTER TABLE table ADD column datetype
+# T*
+def sql_ALTER_TABLE_table_ADD_column_datatype(db, table, column, datatype):
+    sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " ADD " + str(column) + " " + str(datatype) + ";" 
+    print(sql)
     return sql
 
 
