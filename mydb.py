@@ -271,9 +271,6 @@ def split_str_by_spList_ret_enterStr(str, split_list):
 
 
 
-
-
-
 # _________________________________________________________________________________________________________________
 # Get SQL code: get the version of MariaDB
 # T*
@@ -321,6 +318,7 @@ def sql_CREATE_TABLE_use_db_create_table(db_name, table_name, table_detail):
 def sql_DROP_TABLE(db_name, table_name):
     sql = "use " + str(db_name) + "; " + "DROP TABLE " + str(table_name) + ";"
     return sql 
+
 
 
 # _________________________________________________________________________________________________________________
@@ -844,10 +842,14 @@ def sql_SELECT_a_INTO_tn_FROM_to(db_name, a, tn, to):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: SELECT a INTO t_new FROM t_old WHERE condiction
+# Get SQL code: CREATE DATABASE db_name
 # T*
-def sql_SELECT_a_INTO_tn_FROM_to_WHERE_con(db_name, a, tn, to, con):
-    sql = "use " + str(db_name) + "; " + "SELECT " + str(a) + " INTO " + str(tn) + " FROM " + str(to) + " WHERE " + str(con) + ";" 
+def sql_CREATE_DATABASE_db_name(db_name):
+    sql = "CREATE DATABASE " + str(db_name) + ";" 
     print(sql)
     return sql
+
+
+
+
 
