@@ -865,6 +865,13 @@ def sql_CREATE_DATABASE_db_name(db_name):
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: DROP INDEX index_name ON table_name (for Microsoft SQLJet and Microsoft Access)
+# T*
+def sql_DROP_INDEX_index_ON_table(db_name, index, table):
+    sql = "use " + str(db_name) + "; " + "DROP INDEX " + str(index) + " ON " + str(table) + ";" 
+    # print(sql)
+    return sql
 
 
 
