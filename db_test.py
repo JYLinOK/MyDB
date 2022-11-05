@@ -211,10 +211,11 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_ALTER_TABLE_table_ADD_column_datatype("db1", "tb1", "id", "TEXT")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_ALTER_TABLE_table_DROP_COLUMN_column("db1", "tb1", "id")
+# sql = mydb.sql_ALTER_TABLE_table_DROP_COLUMN_column("db1", "tb1", "id")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_ALTER_TABLE_table_ALTER_COLUMN_column_datatype("db1", "tb1", "id", "date")
 print(f"{mydb.SQL(cur, sql) = }")
-
-
 
 
 

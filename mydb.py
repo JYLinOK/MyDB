@@ -1007,7 +1007,7 @@ def sql_ALTER_TABLE_table_DROP_INDEX_index(db, table, index):
 # T*
 def sql_ALTER_TABLE_table_ADD_column_datatype(db, table, column, datatype):
     sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " ADD " + str(column) + " " + str(datatype) + ";" 
-    print(sql)
+    # print(sql)
     return sql
 
 
@@ -1017,5 +1017,15 @@ def sql_ALTER_TABLE_table_ADD_column_datatype(db, table, column, datatype):
 # T*
 def sql_ALTER_TABLE_table_DROP_COLUMN_column(db, table, column):
     sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " DROP COLUMN " + str(column) + ";" 
+    # print(sql)
+    return sql
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: ALTER TABLE table ALTER COLUMN column datatype
+# T*
+def sql_ALTER_TABLE_table_ALTER_COLUMN_column_datatype(db, table, column, datatype):
+    sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " ALTER COLUMN " + str(column) + " " + str(datatype) + ";" 
     print(sql)
     return sql
