@@ -1038,6 +1038,14 @@ def sql_ALTER_TABLE_table_ALTER_COLUMN_column_datatype(db, table, column, dataty
 # T*
 def sql_ALTER_TABLE_table_AUTO_INCREMENT_equal_num(db, table, num):
     sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " AUTO_INCREMENT=" + str(num) + ";" 
-    print(sql)
+    # print(sql)
     return sql
 
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: CREATE VIEW a AS b
+# T*
+def sql_CREATE_VIEW_a_AS_b(db, a, b):
+    sql = "use " + str(db) + "; " + "CREATE VIEW " + str(a) + " AS " + str(b) + ";" 
+    print(sql)
+    return sql
