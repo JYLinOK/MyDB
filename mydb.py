@@ -177,13 +177,26 @@ def get_str_datatype():
 # T*
 def get_int_datatype():
     return [
-        "TINYINT",
-        "SMALLINT",
-        "TINYTEXT",
-        "MEDIUMINT",
-        "INT",
-        "INTEGER",
-        "BIGINT",
+        "TINYINT: h:(-128, 127), n:(0, 255)",
+        "SMALLINT: h:(-32 768, 32 767), n:(0, 65 535)",
+        "MEDIUMINT: h:(-8 388 608, 8 388 607), n:(0, 16 777 215)",
+        "INT: h:(-2 147 483 648, 2 147 483 647), n:(0, 4 294 967 295)",
+        "INTEGER: h:(-2 147 483 648, 2 147 483 647), n:(0, 4 294 967 295)",
+        "BIGINT: h:(-2^63, 2^63-1), n:(0, 2^64-1)",
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL float datatype
+# T*
+def get_float_datatype():
+    return [
+        "FLOAT(size, d): 4 byte",
+        "FLOAT(p): when p = 0-24, FLOAT(), when p = 25-53, DOUBLE(),  ",
+        "DOUBLE(size, d): 8 byte",
+        "DECIMAL(size, d): size: 0-65, default=10, d: 0-30, default=0)",
+        "DEC(size, d): == DECIMAL(size, d)",
     ]
 
 
