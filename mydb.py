@@ -1027,5 +1027,17 @@ def sql_ALTER_TABLE_table_DROP_COLUMN_column(db, table, column):
 # T*
 def sql_ALTER_TABLE_table_ALTER_COLUMN_column_datatype(db, table, column, datatype):
     sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " ALTER COLUMN " + str(column) + " " + str(datatype) + ";" 
+    # print(sql)
+    return sql
+
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: ALTER TABLE table AUTO_INCREMENT=num
+# T*
+def sql_ALTER_TABLE_table_AUTO_INCREMENT_equal_num(db, table, num):
+    sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " AUTO_INCREMENT=" + str(num) + ";" 
     print(sql)
     return sql
+
