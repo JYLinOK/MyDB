@@ -231,6 +231,60 @@ def get_bit_datatype():
     ]
 
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL MySQL Date Function
+# T*
+def get_MySQL_Date_Func():
+    return [
+        "NOW(): 2066-06-16 06:06:36",
+        "CURDATE(): 2066-06-16",
+        "CURTIME(): 06:06:36",
+        "DATE(date): 2066-06-16",
+        "EXTRACT(unit FROM date): unit in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
+        "DATE_ADD(date, INTERVAL expr type): in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
+        "DATE_SUB(date, INTERVAL expr type): in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
+        "DATEDIFF(date1,date2)",
+        "DATE_FORMAT(date, format)",
+        "CURTIME(): 06:06:36",
+        "CURTIME(): 06:06:36",
+    ]
+
+def get_MySQL_DATE_FORMAT():
+    return ["%a abbreviated name of the week",
+    "%b abbreviated month name",
+    "%c month, value",
+    "%D Days in a month with an English prefix",
+    "%d day of the month, value (00-31)",
+    "%e days of the month, value (0-31)",
+    "%f microseconds",
+    "%H hours (00-23)",
+    "%h hours (01-12)",
+    "%I hour (01-12)",
+    "%i minutes, value (00-59)",
+    "%j years of days (001-366)",
+    "%k hours (0-23)",
+    "%l hours (1-12)",
+    "%M month name",
+    "%m month, value (00-12)",
+    "%p AM or PM",
+    "%r time, 12-hours (hh:mm:ss AM or PM)",
+    "%S seconds (00-59)",
+    "%s seconds (00-59)",
+    "%T time, 24-hours (hh:mm:ss)",
+    "%U Sunday is the first day of the week",
+    "%u Monday is the first day of the week",
+    "%V Week (01-53) Sunday is the first day of the week, used with %X",
+    "%v Monday is the first day of the week, used with %x",
+    "%W week name",
+    "%w week days (0= Sunday, 6= Saturday)",
+    "%X years, where Sunday is the first day of the week, 4 bits, and %V are used",
+    "%x years, where Monday is the first day of the week, 4 bits, used with %v",
+    "%Y years, 4 places",
+    "%y"]
+
+
 # =================================================================================================================
 
 
