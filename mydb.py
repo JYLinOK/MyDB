@@ -875,6 +875,13 @@ def sql_DROP_INDEX_index_ON_table(db_name, index, table):
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: DROP INDEX table_name.index_name (for MS SQL Server)
+# T*
+def sql_DROP_INDEX_table_DOT_index(db_name, table, index):
+    sql = "use " + str(db_name) + "; " + "DROP INDEX " + str(table) + "." + str(index) + ";" 
+    print(sql)
+    return sql
 
 
 
