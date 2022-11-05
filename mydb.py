@@ -810,6 +810,17 @@ def sql_SELECT_ALL_FROM_ta_OUTER_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, k
 
 
 # _________________________________________________________________________________________________________________
+# Get SQL code: select * from A left join B on A.key = B.key union select * from A right join B on A.key = B.key (for mysql)
+# T*
+def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " LEFT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) \
+    + " UNION " +  "SELECT * FROM " + str(ta) + " RIGHT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";" 
+    print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
 # Get SQL code: SELECT * FROM ta LEFT JOIN tb b ON ta.key=tb.key WHERE tb.key IS NULL UNION SELECT * FROM ta RIGHT JOIN tb b ON ta.key=tb.key WHERE a.key IS NULL；
 # T*
 def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_sql_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
@@ -818,5 +829,5 @@ def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_sql_SELECT_AL
     sql_right = "SELECT * FROM " + str(ta) + " RIGHT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + \
         " WHERE " + str(ta) + "." + str(key)  + " IS NULL;"
     sql = sql_left + " UNION " + sql_right
-    print(sql)
+    # print(sql)
     return sql
