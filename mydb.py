@@ -231,11 +231,6 @@ def get_bit_datatype():
     ]
 
 
-
-
-
-
-
 # =================================================================================================================
 
 
@@ -1017,3 +1012,10 @@ def sql_ALTER_TABLE_table_ADD_column_datatype(db, table, column, datatype):
 
 
 
+# _________________________________________________________________________________________________________________
+# Get SQL code: ALTER TABLE table DROP COLUMN column 
+# T*
+def sql_ALTER_TABLE_table_DROP_COLUMN_column(db, table, column):
+    sql = "use " + str(db) + "; " + "ALTER TABLE " + str(table) + " DROP COLUMN " + str(column) + ";" 
+    print(sql)
+    return sql
