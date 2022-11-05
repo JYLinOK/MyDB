@@ -242,9 +242,9 @@ def get_MySQL_Date_Func():
         "CURDATE(): 2066-06-16",
         "CURTIME(): 06:06:36",
         "DATE(date): 2066-06-16",
-        "EXTRACT(unit FROM date): unit in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
-        "DATE_ADD(date, INTERVAL expr type): in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
-        "DATE_SUB(date, INTERVAL expr type): in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
+        "EXTRACT(unit FROM date): unit in [get_MySQL_Date_Func_EXTRACT]",
+        "DATE_ADD(date, INTERVAL expr type): in [get_MySQL_Date_Func_DATE_ADD]",
+        "DATE_SUB(date, INTERVAL expr type): in [get_MySQL_Date_Func_DATE_SUB]",
         "DATEDIFF(date1,date2)",
         "DATE_FORMAT(date, format): format in [get_MySQL_Date_Func_DATE_FORMAT]",
         "CURTIME(): 06:06:36",
@@ -254,7 +254,37 @@ def get_MySQL_Date_Func():
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL MySQL DATE_FORMAT(date, format) candidates
+# Get SQL MySQL Func EXTRACT(unit FROM date)
+# T*
+def get_MySQL_Date_Func_EXTRACT():
+    return [
+        "MICROSECOND","SECOND","MINUTE","HOUR","DAY","WEEK","MONTH","QUARTER","YEAR","SECOND_MICROSECOND","MINUTE_MICROSECOND","MINUTE_SECOND","HOUR_MICROSECOND","HOUR_SECOND","HOUR_MINUTE","DAY_MICROSECOND","DAY_SECOND","DAY_MINUTE","DAY_HOUR","YEAR_MONTH"
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL MySQL Func DATE_ADD(date, INTERVAL expr type)
+# T*
+def get_MySQL_Date_Func_DATE_ADD():
+    return [
+        "MICROSECOND","SECOND","MINUTE","HOUR","DAY","WEEK","MONTH","QUARTER","YEAR","SECOND_MICROSECOND","MINUTE_MICROSECOND","MINUTE_SECOND","HOUR_MICROSECOND","HOUR_SECOND","HOUR_MINUTE","DAY_MICROSECOND","DAY_SECOND","DAY_MINUTE","DAY_HOUR","YEAR_MONTH"
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL MySQL Func DATE_SUB(date, INTERVAL expr type)
+# T*
+def get_MySQL_Date_Func_DATE_SUB():
+    return [
+        "MICROSECOND","SECOND","MINUTE","HOUR","DAY","WEEK","MONTH","QUARTER","YEAR","SECOND_MICROSECOND","MINUTE_MICROSECOND","MINUTE_SECOND","HOUR_MICROSECOND","HOUR_SECOND","HOUR_MINUTE","DAY_MICROSECOND","DAY_SECOND","DAY_MINUTE","DAY_HOUR","YEAR_MONTH"
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL MySQL Func DATE_FORMAT(date, format) candidates
 # T*
 def get_MySQL_Date_Func_DATE_FORMAT():
     return [
