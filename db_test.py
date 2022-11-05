@@ -175,15 +175,14 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_ta_OUTER_JOIN_tb_ON_taKey_equal_tbKey("db1", "ta", "tb", "id")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey("db1", "ta", "tb", "id")
-print(f"{mydb.SQL(cur, sql) = }")
+# sql = mydb.sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey("db1", "ta", "tb", "id")
+# print(f"{mydb.SQL(cur, sql) = }")
 
 # sql = mydb.sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_sql_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey("db1", "ta", "tb", "id")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-
-
-
+sql = mydb.sql_SELECT_a_INTO_tn_FROM_to("db1", "id", "ta", "tb")
+print(f"{mydb.SQL(cur, sql) = }")
 
 
 

@@ -815,7 +815,7 @@ def sql_SELECT_ALL_FROM_ta_OUTER_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, k
 def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " LEFT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) \
     + " UNION " +  "SELECT * FROM " + str(ta) + " RIGHT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";" 
-    print(sql)
+    # print(sql)
     return sql 
 
 
@@ -831,3 +831,14 @@ def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_sql_SELECT_AL
     sql = sql_left + " UNION " + sql_right
     # print(sql)
     return sql
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT a INTO t_new FROM t_old
+# T*
+def sql_SELECT_a_INTO_tn_FROM_to(db_name, a, tn, to):
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(a) + " INTO " + str(tn) + " FROM " + str(to) + ";" 
+    print(sql)
+    return sql
+
+
