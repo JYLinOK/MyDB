@@ -347,12 +347,22 @@ def sql_DROP_DATABASE_db(db):
 
 
 # ________________________________________________________________________________________________________________
+# Get SQL code: TRUNCATE TABLE table;
+# T*
+def sql_TRUNCATE_TABLE_table(db, table):
+    sql = "use " + str(db) + "; " + "TRUNCATE TABLE " + str(table) + ";"
+    print(sql)
+    return sql 
+
+
+# ________________________________________________________________________________________________________________
 # Get SQL code: DESCRIBE tableName;
 # T*
 def sql_DESCRIBE_table(db, table):
     sql = "use " + str(db) + "; " + "DESCRIBE " + str(table) + ";"
     # print(sql)
     return sql 
+
 
 
 # _________________________________________________________________________________________________________________
