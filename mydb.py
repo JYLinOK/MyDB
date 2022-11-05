@@ -299,7 +299,7 @@ def sql_SHOW_TABLES(db_name):
 # _________________________________________________________________________________________________________________
 # Get SQL code: CREATE TABLE table_name(table_detail_list)
 # T*
-def sql_CREATE_TABLE_use_db_create_table(db_name, table_name, table_detail):
+def sql_CREATE_TABLE_table_tDetail(db_name, table_name, table_detail):
     sql = ''
     str_table_detail = ''
     if isinstance(table_detail, str):
@@ -846,7 +846,7 @@ def sql_SELECT_a_INTO_tn_FROM_to(db_name, a, tn, to):
 # T*
 def sql_CREATE_DATABASE_db_name(db_name):
     sql = "CREATE DATABASE " + str(db_name) + ";" 
-    print(sql)
+    # print(sql)
     return sql
 
 
