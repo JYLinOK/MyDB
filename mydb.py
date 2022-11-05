@@ -838,7 +838,16 @@ def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_UNION_sql_SELECT_AL
 # T*
 def sql_SELECT_a_INTO_tn_FROM_to(db_name, a, tn, to):
     sql = "use " + str(db_name) + "; " + "SELECT " + str(a) + " INTO " + str(tn) + " FROM " + str(to) + ";" 
-    print(sql)
+    # print(sql)
     return sql
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT a INTO t_new FROM t_old WHERE condiction
+# T*
+def sql_SELECT_a_INTO_tn_FROM_to_WHERE_con(db_name, a, tn, to, con):
+    sql = "use " + str(db_name) + "; " + "SELECT " + str(a) + " INTO " + str(tn) + " FROM " + str(to) + " WHERE " + str(con) + ";" 
+    print(sql)
+    return sql
 
