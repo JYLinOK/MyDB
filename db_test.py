@@ -169,9 +169,11 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_WHERE_bkey_IS_NULL("db1", "t1", "tb1", "id")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey_WHERE_akey_IS_NULL("db1", "ta", "tb", "id")
-print(f"{mydb.SQL(cur, sql) = }")
+# sql = mydb.sql_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey_WHERE_akey_IS_NULL("db1", "ta", "tb", "id")
+# print(f"{mydb.SQL(cur, sql) = }")
 
+# sql = mydb.sql_SELECT_ALL_FROM_ta_OUTER_JOIN_tb_ON_taKey_equal_tbKey("db1", "ta", "tb", "id")
+# print(f"{mydb.SQL(cur, sql) = }")
 
 
 

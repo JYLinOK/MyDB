@@ -794,5 +794,15 @@ def sql_SELECT_ALL_FROM_ta_LEFT_JOIN_tb_ON_taKey_equal_tbKey_WHERE_bkey_IS_NULL(
 def sql_SELECT_ALL_FROM_ta_RIGHT_JOIN_tb_ON_taKey_equal_tbKey_WHERE_akey_IS_NULL(db_name, ta, tb, key):
     sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " RIGHT JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + \
         " WHERE " + str(ta) + "." + str(key)  + " IS NULL;"
+    # print(sql)
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: SELECT * FROM a FULL OUTER JOIN a on a.key = a.key (not for mysql)
+# T*
+def sql_SELECT_ALL_FROM_ta_OUTER_JOIN_tb_ON_taKey_equal_tbKey(db_name, ta, tb, key):
+    sql = "use " + str(db_name) + "; " + "SELECT * FROM " + str(ta) + " OUTER JOIN " + str(tb) + " ON " + str(ta) + "." + str(key) + " = " + str(tb) + "." + str(key) + ";"
     print(sql)
     return sql 
