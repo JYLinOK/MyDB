@@ -246,43 +246,167 @@ def get_MySQL_Date_Func():
         "DATE_ADD(date, INTERVAL expr type): in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
         "DATE_SUB(date, INTERVAL expr type): in [MICROSECOND, SECOND, MINUTE, HOUR, DAY, WEEK, MONTH, QUARTER, YEAR, SECOND_MICROSECOND, MINUTE_MICROSECOND, MINUTE_SECOND, HOUR_MICROSECOND, HOUR_SECOND, HOUR_MINUTE, DAY_MICROSECOND, DAY_SECOND, DAY_MINUTE, DAY_HOUR, YEAR_MONTH]",
         "DATEDIFF(date1,date2)",
-        "DATE_FORMAT(date, format)",
+        "DATE_FORMAT(date, format): format in [get_MySQL_Date_Func_DATE_FORMAT]",
         "CURTIME(): 06:06:36",
         "CURTIME(): 06:06:36",
     ]
 
-def get_MySQL_DATE_FORMAT():
-    return ["%a abbreviated name of the week",
-    "%b abbreviated month name",
-    "%c month, value",
-    "%D Days in a month with an English prefix",
-    "%d day of the month, value (00-31)",
-    "%e days of the month, value (0-31)",
-    "%f microseconds",
-    "%H hours (00-23)",
-    "%h hours (01-12)",
-    "%I hour (01-12)",
-    "%i minutes, value (00-59)",
-    "%j years of days (001-366)",
-    "%k hours (0-23)",
-    "%l hours (1-12)",
-    "%M month name",
-    "%m month, value (00-12)",
-    "%p AM or PM",
-    "%r time, 12-hours (hh:mm:ss AM or PM)",
-    "%S seconds (00-59)",
-    "%s seconds (00-59)",
-    "%T time, 24-hours (hh:mm:ss)",
-    "%U Sunday is the first day of the week",
-    "%u Monday is the first day of the week",
-    "%V Week (01-53) Sunday is the first day of the week, used with %X",
-    "%v Monday is the first day of the week, used with %x",
-    "%W week name",
-    "%w week days (0= Sunday, 6= Saturday)",
-    "%X years, where Sunday is the first day of the week, 4 bits, and %V are used",
-    "%x years, where Monday is the first day of the week, 4 bits, used with %v",
-    "%Y years, 4 places",
-    "%y"]
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL MySQL DATE_FORMAT(date, format) candidates
+# T*
+def get_MySQL_Date_Func_DATE_FORMAT():
+    return [
+        "%a abbreviated name of the week",
+        "%b abbreviated month name",
+        "%c month, value",
+        "%D Days in a month with an English prefix",
+        "%d day of the month, value (00-31)",
+        "%e days of the month, value (0-31)",
+        "%f microseconds",
+        "%H hours (00-23)",
+        "%h hours (01-12)",
+        "%I hour (01-12)",
+        "%i minutes, value (00-59)",
+        "%j years of days (001-366)",
+        "%k hours (0-23)",
+        "%l hours (1-12)",
+        "%M month name",
+        "%m month, value (00-12)",
+        "%p AM or PM",
+        "%r time, 12-hours (hh:mm:ss AM or PM)",
+        "%S seconds (00-59)",
+        "%s seconds (00-59)",
+        "%T time, 24-hours (hh:mm:ss)",
+        "%U Sunday is the first day of the week",
+        "%u Monday is the first day of the week",
+        "%V Week (01-53) Sunday is the first day of the week, used with %X",
+        "%v Monday is the first day of the week, used with %x",
+        "%W week name",
+        "%w week days (0= Sunday, 6= Saturday)",
+        "%X years, where Sunday is the first day of the week, 4 bits, and %V are used",
+        "%x years, where Monday is the first day of the week, 4 bits, used with %v",
+        "%Y years, 4 places",
+        "%y"
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL Server Date
+# T*
+def get_SQL_Server_Date():
+    return [
+        "GETDATE(): 2066-06-16 06:06:36.666",
+        "DATEPART(datepart, date): datepart in [get_SQL_Server_Date_DATEPART]",
+        "DATEADD(datepart, number, date): date in [get_SQL_Server_Date_DATEADD]",
+        "DATEDIFF(datepart, startdate, enddate): date in [get_SQL_Server_Date_DATEDIFF]"
+        "CONVERT(data_type(length), data_to_be_converted, style): date in [get_SQL_Server_Date_CONVERT]"
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL Server Date DATEPART
+# T*
+def get_SQL_Server_Date_DATEPART():
+    return [
+        "Year = yy, yyyy",
+        "A quarter = a quarter",
+        "Month = mm, m",
+        "Day of the year = dy, y",
+        "Day = dd, d",
+        "Week = wk, a ww",
+        "Week = dw, w",
+        "Hour = hh",
+        "Minutes = mi, n",
+        "Second = ss, s",
+        "Millisecond = ms",
+        "Microsecond = MCS",
+        "Nanosecond = ns"
+    ]
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL Server Date DATEADD
+# T*
+def get_SQL_Server_Date_DATEADD():
+    return [
+        "Year = yy, yyyy",
+        "A quarter = a quarter",
+        "Month = mm, m",
+        "Day of the year = dy, y",
+        "Day = dd, d",
+        "Week = wk, a ww",
+        "Week = dw, w",
+        "Hour = hh",
+        "Minutes = mi, n",
+        "Second = ss, s",
+        "Millisecond = ms",
+        "Microsecond = MCS",
+        "Nanosecond = ns"
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL Server Date DATEDIFF
+# T*
+def get_SQL_Server_Date_DATEDIFF():
+    return [
+        "Year = yy, yyyy",
+        "A quarter = a quarter",
+        "Month = mm, m",
+        "Day of the year = dy, y",
+        "Day = dd, d",
+        "Week = wk, a ww",
+        "Week = dw, w",
+        "Hour = hh",
+        "Minutes = mi, n",
+        "Second = ss, s",
+        "Millisecond = ms",
+        "Microsecond = MCS",
+        "Nanosecond = ns"
+    ]
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL Server Date CONVERT
+# T*
+def get_SQL_Server_Date_CONVERT():
+    return [
+        "100 OR 0 = mon dd yyyy hh:miAM (or PM)",
+        "101 = mm/dd/yy",
+        "102 = yy.mm.dd",
+        "103 = dd/mm/yy",
+        "104 = dd.mm.yy",
+        "105 = dd-mm-yy",
+        "106 = dd mon yy",
+        "107 = Mon dd, yy",
+        "108 = hh:mm:ss",
+        "109 or 9 = mon dd yyyy hh:mi:ss:mmmAM(or PM)",
+        "110 = mm-dd-yy",
+        "111 = yy/mm/dd",
+        "112 = yymmdd",
+        "113 or 13 = dd mon yyyy hh:mm:ss:mmm(24h)",
+        "114 = hh:mi:ss:mmm(24h)",
+        "120 or 20 = yyyy-mm-dd hh:mi:ss(24h)",
+        "121 or 21 = yyyy-mm-dd hh:mi:ss.mmm(24h)",
+        "126 = yyyy-mm-ddThh:mm:ss.mmm(not sapce)",
+        "130 = dd mon yyyy hh:mi:ss:mmmAM",
+        "131 = dd/mm/yy hh:mi:ss:mmmAM"
+    ]
+
+
+
+
+
+
+
+
+
 
 
 # =================================================================================================================
