@@ -329,7 +329,7 @@ def sql_CREATE_TABLE_table_tDetail(db_name, table_name, table_detail):
 # _________________________________________________________________________________________________________________
 # Get SQL code: DROP TABLE tableName
 # T*
-def sql_DROP_TABLE(db_name, table_name):
+def sql_DROP_TABLE_table(db_name, table_name):
     sql = "use " + str(db_name) + "; " + "DROP TABLE " + str(table_name) + ";"
     return sql 
 
@@ -900,6 +900,15 @@ def sql_DROP_INDEX_index(index):
 # T*
 def sql_ALTER_TABLE_table_DROP_INDEX_index(db_name, table, index):
     sql = "use " + str(db_name) + "; " + "ALTER TABLE " + str(table) + " DROP INDEX " + str(index) + ";" 
-    print(sql)
+    # print(sql)
     return sql
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: DROP table
+# T*
+def sql_DROP_table(db_name, table, index):
+    sql = "use " + str(db_name) + "; " + "ALTER TABLE " + str(table) + " DROP INDEX " + str(index) + ";" 
+    # print(sql)
+    return sql
