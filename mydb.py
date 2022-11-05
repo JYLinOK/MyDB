@@ -310,6 +310,7 @@ def sql_SHOW_TABLES(db):
 
 
 
+
 # _________________________________________________________________________________________________________________
 # Get SQL code: CREATE TABLE table(table_detail_list)
 # T*
@@ -327,7 +328,7 @@ def sql_CREATE_TABLE_table_tDetail(db, table, table_detail):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: DROP TABLE tableName
+# Get SQL code: DROP TABLE table;
 # T*
 def sql_DROP_TABLE_table(db, table):
     sql = "use " + str(db) + "; " + "DROP TABLE " + str(table) + ";"
@@ -335,12 +336,22 @@ def sql_DROP_TABLE_table(db, table):
 
 
 
-# _________________________________________________________________________________________________________________
+# ________________________________________________________________________________________________________________
+# Get SQL code: DROP DATABASE db;
+# T*
+def sql_DROP_DATABASE_db(db):
+    sql = "SHOW DATABASE " + str(db) + ";"
+    # print(sql)
+    return sql 
+
+
+
+# ________________________________________________________________________________________________________________
 # Get SQL code: DESCRIBE tableName;
 # T*
 def sql_DESCRIBE_table(db, table):
     sql = "use " + str(db) + "; " + "DESCRIBE " + str(table) + ";"
-    print(sql)
+    # print(sql)
     return sql 
 
 
