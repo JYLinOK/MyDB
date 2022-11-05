@@ -1047,5 +1047,32 @@ def sql_ALTER_TABLE_table_AUTO_INCREMENT_equal_num(db, table, num):
 # T*
 def sql_CREATE_VIEW_a_AS_b(db, a, b):
     sql = "use " + str(db) + "; " + "CREATE VIEW " + str(a) + " AS " + str(b) + ";" 
-    print(sql)
+    # print(sql)
     return sql
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: DROP VIEW view
+# T*
+def sql_DROP_VIEW_view(db, view):
+    sql = "use " + str(db) + "; " + "DROP VIEW " + str(view) + ";" 
+    # print(sql)
+    return sql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

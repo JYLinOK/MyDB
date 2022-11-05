@@ -220,7 +220,10 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_ALTER_TABLE_table_AUTO_INCREMENT_equal_num("db1", "tb1", 1)
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]", "b")
+# sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]", "b")
+# print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]")
 print(f"{mydb.SQL(cur, sql) = }")
 
 
