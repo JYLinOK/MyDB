@@ -659,12 +659,23 @@ def sql_SELECT_ALL_FROM_table(db, table):
 # _________________________________________________________________________________________________________________
 # Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
 # T*
-def sql_INSERT_INTO_table_VALUES_tuples(db, table, tuple_list):
-    values_str = str2DList_to_1d_tupleStr(tuple_list)
-    sql = "use " + str(db) + "; " + "INSERT INTO " + str(table) + " VALUES " + values_str + ";"
+def sql_INSERT_INTO_table_VALUES_tuple(db, table, tuple):
+    tuple_str = str(tuple)
+    sql = "use " + str(db) + "; " + "INSERT INTO " + str(table) + " VALUES " + tuple_str + ";"
     # print(f'{sql = }')
     return sql 
 
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: INSERT INTO tableName VALUES (...), (...), ...
+# T*
+def sql_INSERT_INTO_table_VALUES_multiTuples(db, table, tuples_list):
+    values_str = str2DList_to_1d_tupleStr(tuples_list)
+    sql = "use " + str(db) + "; " + "INSERT INTO " + str(table) + " VALUES " + values_str + ";"
+    # print(f'{sql = }')
+    return sql 
+    
 
 
 # _________________________________________________________________________________________________________________
