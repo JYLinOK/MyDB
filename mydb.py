@@ -747,10 +747,10 @@ def sql_SELECT_DISTINCT_columnList_FROM_table(db, column_list, table):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: SELECT * FROM tableName WHERE condiction
+# Get SQL code: SELECT * FROM tableName WHERE condition
 # T*
-def sql_SELECT_ALL_FROM_table_WHERE_condiction(db, table, condiction):
-    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(condiction) + ";"
+def sql_SELECT_ALL_FROM_table_WHERE_condition(db, table, condition):
+    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(condition) + ";"
     # print(sql)
     return sql 
 
@@ -786,10 +786,10 @@ def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_ASC(db, column_list, table
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., condiction
+# Get SQL code: ELECT fileds, ... FROM Orders ORDER BY orders, ..., condition
 # T*
-def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction(db, column_list, table, order_lsit, condiction):
-    sql = "use " + str(db) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condiction) + ";"
+def sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condition(db, column_list, table, order_lsit, condition):
+    sql = "use " + str(db) + "; " + "SELECT " + delete_quotes_in_str(str(column_list))[1:-1] + " FROM " + str(table) + " ORDER BY " + delete_quotes_in_str(str(order_lsit))[1:-1] + " " + str(condition) + ";"
     print(sql)
     return sql 
 
@@ -925,19 +925,19 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_include_x(db, table, column, 
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column LIKE condiction
+# Get SQL code:  SELECT * FROM table WHERE column LIKE condition
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_condiction(db, table, column, condiction):
-    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str(condiction) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_condition(db, table, column, condition):
+    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE " + sql_str(condition) + ";"
     # print(sql)
     return sql 
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE condiction
+# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE condition
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condiction(db, table, column, condiction):
-    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE " + sql_str(condiction) + ";"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_condition(db, table, column, condition):
+    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE " + sql_str(condition) + ";"
     # print(sql)
     return sql 
 
@@ -964,20 +964,20 @@ def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_notStartWithLetters(db, table, co
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column LIKE BINARY condiction
+# Get SQL code:  SELECT * FROM table WHERE column LIKE BINARY condition
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_BINARY_condiction(db, table, column, condiction):
-    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_LIKE_BINARY_condition(db, table, column, condition):
+    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " LIKE BINARY '" + combine_chars_to_aStr(condition) + "%';"
     print(sql)
     return sql 
 
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE BINARY condiction
+# Get SQL code:  SELECT * FROM table WHERE column NOT LIKE BINARY condition
 # T*
-def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condiction(db, table, column, condiction):
-    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE BINARY '" + combine_chars_to_aStr(condiction) + "%';"
+def sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_LIKE_BINARY_condition(db, table, column, condition):
+    sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + " WHERE " + str(column) + " NOT LIKE BINARY '" + combine_chars_to_aStr(condition) + "%';"
     # print(sql)
     return sql 
 
