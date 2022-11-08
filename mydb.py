@@ -487,6 +487,15 @@ def delete_quotes_in_str(str):
 
 
 # _________________________________________________________________________________________________________________
+def no_quotes_tuple_str(tuple):
+    """
+    Delete the single quotes in a tuple str
+    """
+    return delete_quotes_in_str(str(tuple))
+
+
+
+# _________________________________________________________________________________________________________________
 # Change key-value list to kv str
 # T*
 def kvList_2_kvStr(kv_list):
@@ -652,6 +661,16 @@ def sql_SHOW_COLUMNS_FROM_table(db, table):
 # T*
 def sql_SELECT_ALL_FROM_table(db, table):
     sql = "use " + str(db) + "; " + "SELECT * FROM " + str(table) + ";"
+    return sql 
+
+
+
+# _________________________________________________________________________________________________________________
+# Get SQL code: INSERT INTO colomums_tuple tableName VALUES values_tuple
+# T*
+def sql_INSERT_INTO_table_columnsTuple_VALUES_valuesTuple(db, table, colomums_tuple, values_tuple):
+    sql = "use " + str(db) + "; " + "INSERT INTO " + str(table) + " " + sql_str(colomums_tuple) + " VALUES " + str(values_tuple) + ";"
+    print(f'{sql = }')
     return sql 
 
 
