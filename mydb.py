@@ -487,7 +487,7 @@ def delete_quotes_in_str(str):
 
 
 # _________________________________________________________________________________________________________________
-def no_quotes_tuple_str(tuple):
+def no_quotes_tuple_str(tuple:tuple):
     """
     Delete the single quotes in a tuple str
     """
@@ -666,10 +666,11 @@ def sql_SELECT_ALL_FROM_table(db, table):
 
 
 # _________________________________________________________________________________________________________________
-# Get SQL code: INSERT INTO colomums_tuple tableName VALUES values_tuple
-# T*
-def sql_INSERT_INTO_table_columnsTuple_VALUES_valuesTuple(db, table, colomums_tuple, values_tuple):
-    sql = "use " + str(db) + "; " + "INSERT INTO " + str(table) + " " + sql_str(colomums_tuple) + " VALUES " + str(values_tuple) + ";"
+def sql_INSERT_INTO_table_columnsTuple_VALUES_valuesTuple(db:str, table:str, colomums_tuple:tuple, values_tuple:tuple):
+    """
+    Get SQL code: INSERT INTO colomums_tuple tableName VALUES values_tuple
+    """
+    sql = "use " + str(db) + "; " + "INSERT INTO " + str(table) + " " + no_quotes_tuple_str(colomums_tuple) + " VALUES " + str(values_tuple) + ";"
     print(f'{sql = }')
     return sql 
 

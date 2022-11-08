@@ -46,10 +46,9 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # t = [[1, "this 1"], [2, "ok 123"], [3, "NO.3"], [4, "ok 123"]]
 # print(f'{mydb.SQL(cur, mydb.sql_INSERT_INTO_table_VALUES_tuples("db1", "t1", t)) = }')
 
-# print(f'{mydb.SQLcommit(cur,conn, mydb.sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples("db1", "t1", ["id", "name"], [66, "is 66"])) = }')
+# print(f'{mydb.SQLcommit(cur, conn, mydb.sql_INSERT_INTO_table_filedTuple_VALUES_valueTuples("db1", "t1", ["id", "name"], [66, "is 66"])) = }')
 
 # print(f'{mydb.SQL(cur, mydb.sql_CREATE_USER_username_AT_ip_IDENTIFIED_BY_password("usr1", "localhost", "666")) = }')
-
 
 # print(f'{mydb.SQL(cur, mydb.sql_SELECT_column_FROM_table("db1", "name", "t1")) = }')
 
@@ -71,7 +70,6 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 
 # sql = mydb.sql_SELECT_columnList_FROM_table_ORDER_BY_conList_condiction("db1", ["id"], "t1", ["name"], 'ASC')
 # print(f"{mydb.SQL(cur, sql) = }")
-
 
 # sql = mydb.sql_UPDATE_table_SET_columnKvlist_WHERE_columnConkvList("db1", "t1", [["id", 1]], [["name", "this 1"]])
 # print(f"{mydb.SQLcommit(cur, conn, sql) = }")
@@ -129,14 +127,11 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple("db1", "t1", "name", ("is 66"))
 # print(f"{mydb.SQL(cur, sql) = }")
 
-
 # sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_NOT_IN_tuple("db1", "t1", "name", ("is 66"))
 # print(f"{mydb.SQL(cur, sql) = }")
 
-
 # sql = mydb.sql_SELECT_ALL_FROM_tabl_WHERE_column_BETWEEN_a_AND_b("db1", "t1", "id", 2, 3)
 # print(f"{mydb.SQL(cur, sql) = }")
-
 
 # sql = mydb.sql_SELECT_column_AS_c_FROM_table("db1", "id", "i", "t1")
 # print(f"{mydb.SQL(cur, sql) = }")
@@ -224,6 +219,10 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 
 # sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]")
 # print(f"{mydb.SQL(cur, sql) = }")
+
+sql = mydb.sql_INSERT_INTO_table_columnsTuple_VALUES_valuesTuple("db1", "t1", ('c1', 'c2', 'c3'), ('v1', 'v2', 'v3'))
+print(f"{mydb.SQLcommit(cur, conn, sql) = }")
+
 
 
 
