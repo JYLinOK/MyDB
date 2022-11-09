@@ -1319,7 +1319,28 @@ def sql_SELECT_COUNT_DISTINCT_column_FROM_table(db:str, column:str, table:str):
     Get SQL code: SELECT COUNT(DISTINCT column_name) FROM table_name
     """
     sql = "use " + str(db) + "; " + "SELECT COUNT(DISTINCT " + str(column) + ")" + " FROM " + str(table) + ";" 
-    print(sql)
+    # print(sql)
     return sql
 
+
+
+# _________________________________________________________________________________________________________________
+def sql_SELECT_COUNT_condition_FROM_table(db:str, con:str, table:str):
+    """
+    Get SQL code: SELECT COUNT condition FROM table
+    """
+    sql = "use " + str(db) + "; " + "SELECT COUNT " + str(con) + " FROM " + str(table) + ";" 
+    # print(sql)
+    return sql
+
+
+
+# _________________________________________________________________________________________________________________
+def sql_SELECT_COUNT_condition1_FROM_table_WHERE_condition2(db:str, con1:str, table:str, con2:str):
+    """
+    Get SQL code: SELECT COUNT condition1 FROM table WHERE condition2
+    """
+    sql = "use " + str(db) + "; " + "SELECT COUNT " + str(con1) + " FROM " + str(table) + " WHERE " + str(con2) + ";" 
+    # print(sql)
+    return sql
 

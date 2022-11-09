@@ -229,9 +229,11 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_SELECT_COUNT_ALL_FROM_table("db1", "t1")
 # print(f"{mydb.SQL(cur, conn, sql) = }")
 
-sql = mydb.sql_SELECT_COUNT_DISTINCT_column_FROM_table("db1", "c1", "t1")
-print(f"{mydb.SQL(cur, sql) = }")
+# sql = mydb.sql_SELECT_COUNT_DISTINCT_column_FROM_table("db1", "c1", "t1")
+# print(f"{mydb.SQL(cur, sql) = }")
 
+sql = mydb.sql_SELECT_COUNT_condition1_FROM_table_WHERE_condition2("db1", "con1", "t1", "con2")
+print(f"{mydb.SQL(cur, sql) = }")
 
 
 
