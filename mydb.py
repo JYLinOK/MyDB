@@ -671,7 +671,7 @@ def sql_INSERT_INTO_table_columnsTuple_VALUES_valuesTuple(db:str, table:str, col
     Get SQL code: INSERT INTO colomums_tuple tableName VALUES values_tuple
     """
     sql = "use " + str(db) + "; " + "INSERT INTO " + str(table) + " " + no_quotes_tuple_str(colomums_tuple) + " VALUES " + str(values_tuple) + ";"
-    print(f'{sql = }')
+    # print(f'{sql = }')
     return sql 
 
 
