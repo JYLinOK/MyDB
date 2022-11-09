@@ -220,7 +220,13 @@ print(f'{mydb.SQL(cur, mydb.sql_SELECT_ALL_FROM_table("db1", "t1")) = }')
 # sql = mydb.sql_CREATE_VIEW_a_AS_b("db1", "[a]")
 # print(f"{mydb.SQL(cur, sql) = }")
 
-sql = mydb.sql_INSERT_INTO_table_columnsTuple_VALUES_valuesTuple("db1", "t1", ('c1', 'c2', 'c3'), ('v1', 'v2', 'v3'))
+# sql = mydb.sql_INSERT_INTO_table_columnsTuple_VALUES_valuesTuple("db1", "t1", ('c1', 'c2', 'c3'), ('v1', 'v2', 'v3'))
+# print(f"{mydb.SQLcommit(cur, conn, sql) = }")
+
+# sql = mydb.sql_SELECT_COUNT_column_FROM_table("db1", "c1", "t1")
+# print(f"{mydb.SQLcommit(cur, conn, sql) = }")
+
+sql = mydb.sql_SELECT_COUNT_ALL_FROM_table("db1", "t1")
 print(f"{mydb.SQLcommit(cur, conn, sql) = }")
 
 

@@ -1291,6 +1291,26 @@ def sql_DROP_VIEW_view(db, view):
 
 
 
+# _________________________________________________________________________________________________________________
+def sql_SELECT_COUNT_column_FROM_table(db:str, column:str, table:str):
+    """
+    Get SQL code: SELECT COUNT(column_name) FROM table_name
+    """
+    sql = "use " + str(db) + "; " + "SELECT COUNT(" + str(column) + ")" + " FROM " + str(table) + ";" 
+    # print(sql)
+    return sql
+
+
+
+# _________________________________________________________________________________________________________________
+def sql_SELECT_COUNT_ALL_FROM_table(db:str, table:str):
+    """
+    Get SQL code: SELECT COUNT(*) FROM table_name
+    """
+    sql = "use " + str(db) + "; " + "SELECT COUNT(*)" + " FROM " + str(table) + ";" 
+    print(sql)
+    return sql
+
 
 
 
